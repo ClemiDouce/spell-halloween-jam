@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ljp1n4grw87i"]
+
+[ext_resource type="Texture2D" uid="uid://cix11my4xbp6j" path="res://assets/art/tile_0063.png" id="1_l5l1p"]
+[ext_resource type="Script" uid="uid://drb6ltlr6xgno" path="res://trash/test_curve.gd" id="1_q8v0y"]
+[ext_resource type="Curve" uid="uid://mdy0o3ltg8d0" path="res://data/curve/axe_curve.tres" id="2_1scxt"]
+
+[node name="TestCurve" type="Node2D"]
+script = ExtResource("1_q8v0y")
+curve = ExtResource("2_1scxt")
+
+[node name="CactusSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(86, 71)
+texture = ExtResource("1_l5l1p")
