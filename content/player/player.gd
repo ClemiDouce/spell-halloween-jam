@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var tool_sprite: Sprite2D = %Tool
 @onready var root_tool: Node2D = %RootTool
 @onready var tool_area: Area2D = %ToolArea
+@onready var dialogue_position: Marker2D = %DialoguePosition
 
 @export_category("Tool Uses Curve")
 @export var axe_curve: Curve
@@ -15,13 +16,19 @@ var tool_speed := 0.7
 
 var state := "idle"
 var last_direction := Vector2.DOWN
-var tool_list : Array[ToolData] = []
+var last_clamped_direction := Vector2.DOWN
+
+var direction_list := [Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.UP]
 
 func get_input():
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	if direction != Vector2.ZERO:
 		last_direction = direction
+		if direction in direction_list:
+			last_clamped_direction = direction
+			root_tool.rotation = direction.angle()
+		
 		state = "walk"
 	else:
 		state = "idle"
@@ -31,7 +38,7 @@ func get_input():
 func update_visuals():
 	var animation_name : String = state
 	
-	match(last_direction):
+	match(last_clamped_direction):
 		Vector2.LEFT:
 			animation_name += "_left"
 			sprite.flip_h = false
@@ -49,10 +56,15 @@ func update_visuals():
 
 func _process(_delta: float) -> void:
 	update_visuals()
-	if Input.is_action_just_pressed("use_axe"):
-		swing_tool("axe")
-	elif Input.is_action_just_pressed("use_scythe"):
-		swing_tool("scythe")
+	if state != "tool":
+		if Input.is_action_just_pressed("use_axe"):
+			swing_tool("axe")
+		elif Input.is_action_just_pressed("use_scythe"):
+			swing_tool("scythe")
+			
+		if Input.is_action_just_pressed("interact") and !DialogueManager.is_dialog_active:
+			print(dialogue_position.global_position)
+			DialogueManager.start_dialog(dialogue_position.global_position, ["I'm blue", "Dabadadee dabadaaaaaa", "What's happening to me .."])
 
 func _physics_process(_delta: float) -> void:
 	if state == "tool":
@@ -74,7 +86,6 @@ func swing_tool(tool_name: String):
 			tool_sprite.frame = 7
 			tool_curve = scythe_curve
 	tool_sprite.show()
-	root_tool.rotation = last_direction.angle()
 	var tool_tween = create_tween()
 	tool_tween.tween_property(tool_sprite, "rotation_degrees", 90, tool_speed).from(0)\
 				.set_custom_interpolator(Global.tween_curve.bind(tool_curve))
@@ -93,4 +104,3 @@ func check_destroyable(tool: String):
 				d.destroy()
 			elif tool == "scythe" and d is Grass:
 				d.destroy()
-	

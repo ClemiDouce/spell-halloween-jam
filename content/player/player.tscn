@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://14333omabcms"]
+[gd_scene load_steps=34 format=3 uid="uid://14333omabcms"]
 
 [ext_resource type="Script" uid="uid://bxlnrg7eleaan" path="res://content/player/player.gd" id="1_oq5wi"]
 [ext_resource type="Texture2D" uid="uid://7iv4enbnmmwy" path="res://content/player/sprites/idle_sheet.png" id="1_y66qv"]
@@ -211,7 +211,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o23i7"]
-size = Vector2(6, 10)
+size = Vector2(9, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdtqi"]
+radius = 11.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -251,6 +254,7 @@ position = Vector2(0, -3)
 [node name="Tool" type="Sprite2D" parent="RootTool"]
 unique_name_in_owner = true
 visible = false
+z_index = 1
 rotation = 2.0943952
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_i4jjh")
@@ -269,5 +273,16 @@ collision_mask = 24
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RootTool/ToolArea"]
-position = Vector2(10, 0)
+position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_o23i7")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_gdtqi")
+
+[node name="DialoguePosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(6, -19)
