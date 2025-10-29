@@ -132,5 +132,3 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_ig52j")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
