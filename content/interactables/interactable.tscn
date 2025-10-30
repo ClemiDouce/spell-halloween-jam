@@ -4,5 +4,3 @@
 
 [node name="InteractArea" type="Area2D"]
 script = ExtResource("1_pia82")
-interact_name = null
-is_interactable = null

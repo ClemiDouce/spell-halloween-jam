@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://14333omabcms"]
+[gd_scene load_steps=36 format=3 uid="uid://14333omabcms"]
 
 [ext_resource type="Script" uid="uid://bxlnrg7eleaan" path="res://content/player/player.gd" id="1_oq5wi"]
 [ext_resource type="Texture2D" uid="uid://7iv4enbnmmwy" path="res://content/player/sprites/idle_sheet.png" id="1_y66qv"]
 [ext_resource type="Curve" uid="uid://mdy0o3ltg8d0" path="res://data/curve/axe_curve.tres" id="2_3ac0f"]
 [ext_resource type="Texture2D" uid="uid://deiie1dehvej5" path="res://content/player/sprites/walk_sheet.png" id="2_oq5wi"]
 [ext_resource type="Texture2D" uid="uid://bprg7y25bhgn3" path="res://assets/art/tilemap_packed.png" id="4_i4jjh"]
+[ext_resource type="Script" uid="uid://kiuwiyq6hnhh" path="res://content/player/interaction_area.gd" id="6_o23i7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0q2h"]
 size = Vector2(12, 6)
@@ -216,6 +217,10 @@ size = Vector2(9, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdtqi"]
 radius = 11.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_o23i7"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_oq5wi")
@@ -276,13 +281,33 @@ monitorable = false
 position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_o23i7")
 
-[node name="InteractionArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="." node_paths=PackedStringArray("interaction_label")]
+collision_layer = 0
+collision_mask = 2
 monitorable = false
+script = ExtResource("6_o23i7")
+interaction_label = NodePath("InteractionLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_gdtqi")
 
+[node name="InteractionLabel" type="Label" parent="InteractionArea"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -33.0
+offset_right = 25.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_o23i7")
+
 [node name="DialoguePosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(6, -19)
+position = Vector2(0, -25)

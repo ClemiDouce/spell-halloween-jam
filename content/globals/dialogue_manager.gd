@@ -1,6 +1,10 @@
 extends Node
 
+signal dialogue_finished
+
 @onready var dialogue_bubble = preload("res://content/ui/dialogue_bubble/dialogue_bubble.tscn")
+@onready var dialogue_bubble_no_tail = preload("uid://cr7qdg4jh34u2")
+
 
 var dialog_lines : Array[String] = []
 var current_line_index := 0
@@ -23,7 +27,7 @@ func start_dialog(position: Vector2, lines: Array[String]):
 	is_dialog_active = true
 	
 func _show_text_box():
-	text_box = dialogue_bubble.instantiate() as DialogBubble
+	text_box = dialogue_bubble_no_tail.instantiate() as DialogBubble
 	text_box.finished.connect(_on_line_finished)
 	get_tree().root.add_child(text_box)
 	text_box.global_position = text_box_position
@@ -45,6 +49,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if current_line_index >= dialog_lines.size():
 			is_dialog_active = false
 			current_line_index = 0
+			dialogue_finished.emit()
 			return
 		
 		_show_text_box()

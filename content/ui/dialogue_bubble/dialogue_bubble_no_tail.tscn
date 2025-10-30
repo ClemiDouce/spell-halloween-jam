@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr7qdg4jh34u2"]
+
+[ext_resource type="Script" uid="uid://bu1r3glm5x1t4" path="res://content/ui/dialogue_bubble/dialogue_bubble.gd" id="1_qqb3l"]
+[ext_resource type="Texture2D" uid="uid://2npehe3k66md" path="res://assets/ui/dialogue_bubble_no_tail.png" id="2_qqb3l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxhlp"]
+font_color = Color(0.101867564, 0.10186755, 0.10186755, 1)
+
+[node name="DialogueBubble" type="MarginContainer"]
+custom_minimum_size = Vector2(10, 10)
+offset_right = 18.0
+offset_bottom = 19.0
+pivot_offset = Vector2(9, 19)
+script = ExtResource("1_qqb3l")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_qqb3l")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="DialogueLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+label_settings = SubResource("LabelSettings_oxhlp")
+
+[node name="CharacterTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="CharacterTimer" to="." method="_on_character_timer_timeout"]

@@ -87,6 +87,7 @@ advance_dialog={
 [layer_names]
 
 2d_physics/layer_1="environnement"
+2d_physics/layer_2="interaction"
 2d_physics/layer_3="player"
 2d_physics/layer_4="log"
 2d_physics/layer_5="grass"

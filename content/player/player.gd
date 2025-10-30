@@ -13,10 +13,13 @@ class_name Player extends CharacterBody2D
 
 @export var walk_speed : float = 100.
 var tool_speed := 0.7
+var have_axe := true
+var have_scythe := true
 
 var state := "idle"
 var last_direction := Vector2.DOWN
 var last_clamped_direction := Vector2.DOWN
+
 
 var direction_list := [Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.UP]
 
@@ -57,15 +60,11 @@ func update_visuals():
 func _process(_delta: float) -> void:
 	update_visuals()
 	if state != "tool":
-		if Input.is_action_just_pressed("use_axe"):
+		if Input.is_action_just_pressed("use_axe") and have_axe:
 			swing_tool("axe")
-		elif Input.is_action_just_pressed("use_scythe"):
+		elif Input.is_action_just_pressed("use_scythe") and have_scythe:
 			swing_tool("scythe")
-			
-		if Input.is_action_just_pressed("interact") and !DialogueManager.is_dialog_active:
-			print(dialogue_position.global_position)
-			DialogueManager.start_dialog(dialogue_position.global_position, ["I'm blue", "Dabadadee dabadaaaaaa", "What's happening to me .."])
-
+	
 func _physics_process(_delta: float) -> void:
 	if state == "tool":
 		return
