@@ -7,7 +7,7 @@ signal dialogue_finished
 
 var cinema_effect : CinematicEffect
 
-var dialog_lines : Array[String] = []
+var dialog_lines : Array = []
 var current_line_index := 0
 
 var text_box : DialogBubble
@@ -16,17 +16,17 @@ var text_box_position : Vector2
 var is_dialog_active := false
 var can_advance_line := false
 
-func start_dialog(position: Vector2, lines: Array[String], cinematic: bool = false):
+func start_dialog(position: Vector2, lines: Array, cinematic: bool = false):
 	if is_dialog_active:
 		return
-		
+	is_dialog_active = true
 	dialog_lines = lines
 	text_box_position = position
 	if cinematic:
 		await cinema_effect.cinema_in()
 	_show_text_box()
 	
-	is_dialog_active = true
+	
 
 func end_dialog():
 	if cinema_effect.active:

@@ -7,7 +7,7 @@ class_name Interactable extends Area2D
 var interaction : Callable = func(): pass
 
 func _ready() -> void:
-	interaction_label.text = interact_name
+	#interaction_label.text = interact_name
 	interaction_label.hide()
 
 

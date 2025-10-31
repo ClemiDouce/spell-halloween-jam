@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ToolData" load_steps=3 format=3 uid="uid://cpux6vbv6mc78"]
+
+[ext_resource type="Script" uid="uid://b0jqwcfayn8j5" path="res://data/tool_data/tool_data.gd" id="1_a6qp7"]
+[ext_resource type="Texture2D" uid="uid://dtvimx75q76in" path="res://assets/art/tools/tile_0115.png" id="1_pn3rn"]
+
+[resource]
+script = ExtResource("1_a6qp7")
+tool_name = "Pickaxe"
+icon = ExtResource("1_pn3rn")
+input_key = "Use it with [X]"
+target = "Use it on rocks"
+metadata/_custom_type_script = "uid://b0jqwcfayn8j5"

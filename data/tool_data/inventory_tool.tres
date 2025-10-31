@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ToolData" load_steps=3 format=3 uid="uid://cwvmwtv3baji2"]
+
+[ext_resource type="Script" uid="uid://b0jqwcfayn8j5" path="res://data/tool_data/tool_data.gd" id="1_f56j7"]
+[ext_resource type="Texture2D" uid="uid://ckjb5uomi488w" path="res://assets/art/tools/tile_0107.png" id="1_p8iq4"]
+
+[resource]
+script = ExtResource("1_f56j7")
+tool_name = "Inventory System"
+icon = ExtResource("1_p8iq4")
+metadata/_custom_type_script = "uid://b0jqwcfayn8j5"

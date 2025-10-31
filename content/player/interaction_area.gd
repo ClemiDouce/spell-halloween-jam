@@ -14,7 +14,7 @@ func _input(event: InputEvent):
 			can_interact = false
 			#interaction_label.hide()
 			current_interaction.hide_prompt()
-			await current_interaction.interaction.call()
+			await current_interaction.interaction.call(owner)
 			#interaction_label.show()
 			current_interaction.show_prompt()
 			can_interact = true

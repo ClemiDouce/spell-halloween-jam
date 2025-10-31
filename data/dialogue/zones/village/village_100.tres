@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bb8t8hbxnihst"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_k5sc7"]
+
+[resource]
+script = ExtResource("1_k5sc7")
+lines = Array[String](["Pour un premier projet, c'est quand meme pas mal", "Je veux dire, faut bien commencer quelque part nan ?", "Ca donne envie d'y revenir pour quelques modifications", "Mais peut etre une fois ! J'ai d'autres zones a nettoyer !"])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bpdlq0audcmxa"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_2qfjx"]
+
+[resource]
+script = ExtResource("1_2qfjx")
+lines = Array[String](["J'ai quand meme eu quelques bonnes idées", "Ce petit puit la ? Adorable", "Et cette charette ? Impeccable", "Je suis assez fière de moi finalement !"])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

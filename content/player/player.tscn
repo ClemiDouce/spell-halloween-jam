@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://14333omabcms"]
+[gd_scene load_steps=37 format=3 uid="uid://14333omabcms"]
 
 [ext_resource type="Script" uid="uid://bxlnrg7eleaan" path="res://content/player/player.gd" id="1_oq5wi"]
 [ext_resource type="Texture2D" uid="uid://7iv4enbnmmwy" path="res://content/player/sprites/idle_sheet.png" id="1_y66qv"]
 [ext_resource type="Curve" uid="uid://mdy0o3ltg8d0" path="res://data/curve/axe_curve.tres" id="2_3ac0f"]
 [ext_resource type="Texture2D" uid="uid://deiie1dehvej5" path="res://content/player/sprites/walk_sheet.png" id="2_oq5wi"]
+[ext_resource type="Curve" uid="uid://ctx7ddvy5mo7j" path="res://data/curve/pickaxe_curve.tres" id="3_gdtqi"]
 [ext_resource type="Texture2D" uid="uid://bprg7y25bhgn3" path="res://assets/art/tilemap_packed.png" id="4_i4jjh"]
 [ext_resource type="Script" uid="uid://kiuwiyq6hnhh" path="res://content/player/interaction_area.gd" id="6_o23i7"]
 
@@ -226,6 +227,7 @@ collision_layer = 4
 script = ExtResource("1_oq5wi")
 axe_curve = ExtResource("2_3ac0f")
 scythe_curve = ExtResource("2_3ac0f")
+pickaxe_curve = ExtResource("3_gdtqi")
 walk_speed = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -260,14 +262,12 @@ position = Vector2(0, -3)
 unique_name_in_owner = true
 visible = false
 z_index = 1
-rotation = 2.0943952
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_i4jjh")
 offset = Vector2(0, -12)
 flip_h = true
 hframes = 5
 vframes = 2
-frame = 7
 region_enabled = true
 region_rect = Rect2(112, 144, 80, 32)
 
@@ -311,3 +311,7 @@ label_settings = SubResource("LabelSettings_o23i7")
 [node name="DialoguePosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -25)
+
+[node name="ToolSprite" type="Sprite2D" parent="DialoguePosition"]
+unique_name_in_owner = true
+visible = false
