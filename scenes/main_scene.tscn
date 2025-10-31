@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6i4s437v61fj"]
+[gd_scene load_steps=30 format=3 uid="uid://b6i4s437v61fj"]
 
 [ext_resource type="PackedScene" uid="uid://2qeymtsc1we4" path="res://scenes/map_art.tscn" id="1_c1pb6"]
 [ext_resource type="PackedScene" uid="uid://14333omabcms" path="res://content/player/player.tscn" id="2_pw63i"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://b3kwj0bx04dwb" path="res://data/dialogue/zones/village/village_50.tres" id="12_r6p65"]
 [ext_resource type="Resource" uid="uid://bpdlq0audcmxa" path="res://data/dialogue/zones/village/village_75.tres" id="13_si52b"]
 [ext_resource type="Resource" uid="uid://bb8t8hbxnihst" path="res://data/dialogue/zones/village/village_100.tres" id="14_01n6w"]
+[ext_resource type="PackedScene" uid="uid://c61c6h6sh2hjs" path="res://content/destructibles/rock.tscn" id="19_7nt27"]
 
 [sub_resource type="Animation" id="Animation_c1pb6"]
 resource_name = "cinema_in"
@@ -136,7 +137,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_pw63i")]
 y_sort_enabled = true
-position = Vector2(197, 109)
+position = Vector2(1157, 388)
 walk_speed = 100.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1427,12 +1428,25 @@ destructibles_parent = NodePath("Destructibles")
 metadata/_custom_type_script = "uid://dxyrflls3adxw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone"]
+visible = false
 position = Vector2(240, 136)
 shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Interactables" type="Node2D" parent="ZombieZone"]
 
 [node name="Destructibles" type="Node2D" parent="ZombieZone"]
+
+[node name="Rock" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
+position = Vector2(253, 101)
+
+[node name="Rock2" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
+position = Vector2(278, 139)
+
+[node name="Rock3" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
+position = Vector2(305, 85)
+
+[node name="Decoration" type="Node2D" parent="ZombieZone"]
+y_sort_enabled = true
 
 [node name="EndProjectZone" type="Area2D" parent="." node_paths=PackedStringArray("destructibles_parent")]
 position = Vector2(960, 0)

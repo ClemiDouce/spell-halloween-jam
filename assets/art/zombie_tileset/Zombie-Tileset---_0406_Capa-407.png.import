@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjfntyj7v7fkf"
-path="res://.godot/imported/Zombie-Tileset---_0009_Capa-10.png-6f5df3febc0e1ed9f92569deb001efd7.ctex"
+uid="uid://3he03dliqvxw"
+path="res://.godot/imported/Zombie-Tileset---_0406_Capa-407.png-6c91f48e42e1bbcb7edd7b3fbb19aa27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/zombie_tileset/Modular Big Building/Zombie-Tileset---_0009_Capa-10.png"
-dest_files=["res://.godot/imported/Zombie-Tileset---_0009_Capa-10.png-6f5df3febc0e1ed9f92569deb001efd7.ctex"]
+source_file="res://assets/art/zombie_tileset/Zombie-Tileset---_0406_Capa-407.png"
+dest_files=["res://.godot/imported/Zombie-Tileset---_0406_Capa-407.png-6c91f48e42e1bbcb7edd7b3fbb19aa27.ctex"]
 
 [params]
 

@@ -18,7 +18,7 @@ class_name Player extends CharacterBody2D
 var tool_speed := 0.7
 var have_axe := false
 var have_scythe := false
-var have_pickaxe := false
+var have_pickaxe := true
 
 var state := "idle"
 var last_direction := Vector2.DOWN
@@ -111,6 +111,8 @@ func check_destroyable(tool: String):
 			if tool == "axe" and d is Log:
 				d.destroy()
 			elif tool == "scythe" and d is Grass:
+				d.destroy()
+			elif tool == "pickaxe" and d is Rock:
 				d.destroy()
 
 func get_tool(tool_data: ToolData):

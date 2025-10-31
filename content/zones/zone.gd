@@ -33,7 +33,7 @@ func on_destructible_destroyed():
 		dialogue_index = 0
 	if dialogue_index != -1 and dialogue_index > last_dialogue_index:
 		last_dialogue_index = dialogue_index
-		DialogueManager.start_dialog(self.global_position + Vector2(250, 135), dialogues_steps[dialogue_index].lines, true)
+		#DialogueManager.start_dialog(self.global_position + Vector2(250, 135), dialogues_steps[dialogue_index].lines, true)
 
 func on_player_entered_zone(body: Node2D):
 	Events.player_entered_zone.emit(self)

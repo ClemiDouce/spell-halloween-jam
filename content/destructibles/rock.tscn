@@ -1,0 +1,220 @@
+[gd_scene load_steps=9 format=3 uid="uid://c61c6h6sh2hjs"]
+
+[ext_resource type="Script" uid="uid://dkblnmiubtuca" path="res://content/destructibles/rock.gd" id="1_688f0"]
+[ext_resource type="Texture2D" uid="uid://b0746kohhdxf8" path="res://assets/art/spr_tileset_sunnysideworld_16px.png" id="2_688f0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od5xr"]
+size = Vector2(18, 14)
+
+[sub_resource type="Animation" id="Animation_ae1p7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathVisuals/TopSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathVisuals/TopSprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathVisuals/MiddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeathVisuals/BottomSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathVisuals:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_688f0"]
+resource_name = "wiggle"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathVisuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(0.4999999, 0.4665164, 0.4665164, 1),
+"update": 0,
+"values": [Vector2(0, -11), Vector2(2, -11), Vector2(-3, -11), Vector2(0, -11)]
+}
+
+[sub_resource type="Animation" id="Animation_0x4ld"]
+resource_name = "destruct"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathVisuals:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.23333333, 0.3, 0.36666667, 0.43333334, 0.5, 0.5666667, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathVisuals/TopSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(0.4665164, 1),
+"update": 0,
+"values": [Vector2(-11, -10), Vector2(-18, -14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathVisuals/TopSprite2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(0.4665164, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(3, -17)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeathVisuals/MiddleSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(0.4665164, 1),
+"update": 0,
+"values": [Vector2(-5, 6), Vector2(-9, 8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathVisuals/BottomSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(0.4665164, 1),
+"update": 0,
+"values": [Vector2(1, -1), Vector2(6, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1elgr"]
+_data = {
+&"RESET": SubResource("Animation_ae1p7"),
+&"destruct": SubResource("Animation_0x4ld"),
+&"wiggle": SubResource("Animation_688f0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x4ld"]
+size = Vector2(22, 20.5)
+
+[node name="Rock" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_688f0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -14)
+texture = ExtResource("2_688f0")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(821, 471, 22, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_od5xr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1elgr")
+}
+
+[node name="DeathVisuals" type="Node2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="TopSprite" type="Sprite2D" parent="DeathVisuals"]
+position = Vector2(-11, -10)
+texture = ExtResource("2_688f0")
+centered = false
+region_enabled = true
+region_rect = Rect2(821, 471, 11, 11)
+
+[node name="TopSprite2" type="Sprite2D" parent="DeathVisuals"]
+position = Vector2(0, -10)
+texture = ExtResource("2_688f0")
+centered = false
+region_enabled = true
+region_rect = Rect2(832, 471, 11, 11)
+
+[node name="MiddleSprite" type="Sprite2D" parent="DeathVisuals"]
+position = Vector2(-5, 6)
+texture = ExtResource("2_688f0")
+region_enabled = true
+region_rect = Rect2(821, 480, 12, 14)
+
+[node name="BottomSprite" type="Sprite2D" parent="DeathVisuals"]
+position = Vector2(1, -1)
+texture = ExtResource("2_688f0")
+centered = false
+region_enabled = true
+region_rect = Rect2(833, 480, 10, 13)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -10.75)
+shape = SubResource("RectangleShape2D_0x4ld")
