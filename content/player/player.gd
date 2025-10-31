@@ -9,10 +9,7 @@ class_name Player extends CharacterBody2D
 @onready var tool_get_sprite: Sprite2D = %ToolSprite
 
 
-@export_category("Tool Uses Curve")
-@export var axe_curve: Curve
-@export var scythe_curve: Curve
-@export var pickaxe_curve: Curve
+@export var tool_curve: Curve
 
 @export var walk_speed : float = 100.
 var tool_speed := 0.7
@@ -82,17 +79,13 @@ func _physics_process(_delta: float) -> void:
 
 func swing_tool(tool_name: String):
 	state = "tool"
-	var tool_curve : Curve
 	match(tool_name):
 		"axe":
 			tool_sprite.frame = 5
-			tool_curve = axe_curve
 		"scythe":
 			tool_sprite.frame = 7
-			tool_curve = scythe_curve
 		"pickaxe":
 			tool_sprite.frame = 0
-			tool_curve = pickaxe_curve
 	tool_sprite.show()
 	var tool_tween = create_tween()
 	tool_tween.tween_property(tool_sprite, "rotation_degrees", 90., tool_speed).from(0.)\

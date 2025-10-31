@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b6i4s437v61fj"]
+[gd_scene load_steps=34 format=3 uid="uid://b6i4s437v61fj"]
 
 [ext_resource type="PackedScene" uid="uid://2qeymtsc1we4" path="res://scenes/map_art.tscn" id="1_c1pb6"]
 [ext_resource type="PackedScene" uid="uid://14333omabcms" path="res://content/player/player.tscn" id="2_pw63i"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://bpdlq0audcmxa" path="res://data/dialogue/zones/village/village_75.tres" id="13_si52b"]
 [ext_resource type="Resource" uid="uid://bb8t8hbxnihst" path="res://data/dialogue/zones/village/village_100.tres" id="14_01n6w"]
 [ext_resource type="PackedScene" uid="uid://c61c6h6sh2hjs" path="res://content/destructibles/rock.tscn" id="19_7nt27"]
+[ext_resource type="Texture2D" uid="uid://bemh7yqsr4he1" path="res://assets/art/zombie_tileset/Zombie-Tileset---_0180_Capa-181.png" id="20_k6f3i"]
 
 [sub_resource type="Animation" id="Animation_c1pb6"]
 resource_name = "cinema_in"
@@ -126,6 +127,14 @@ size = Vector2(49.75, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6f3i"]
 size = Vector2(27.0625, 22.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqt8"]
+size = Vector2(114, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adb74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58gk3"]
+size = Vector2(32, 11)
 
 [node name="MainScene" type="Node2D"]
 y_sort_enabled = true
@@ -1433,17 +1442,226 @@ position = Vector2(240, 136)
 shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Interactables" type="Node2D" parent="ZombieZone"]
+z_index = 1
+
+[node name="DialogueInteractable5" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+position = Vector2(226, 239)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_18nlu")
+dialogue_lines = Array[String](["Please, don't let the zombies cross the barrier", "They're not dangerous, but ..", "Their pathfinding is broken !"])
+interaction_label = NodePath("InteractionLabel")
+interact_name = "Test Panel"
+metadata/_custom_type_script = "uid://dig2g8rgyp0it"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/DialogueInteractable5"]
+position = Vector2(14, 2)
+shape = SubResource("RectangleShape2D_xdqt8")
+
+[node name="InteractionLabel" type="Label" parent="ZombieZone/Interactables/DialogueInteractable5"]
+z_index = 1
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -28.0
+offset_right = 53.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Group of Zombie"
+label_settings = ExtResource("9_bcnxi")
+
+[node name="DialogueInteractable6" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+position = Vector2(232, 122)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_18nlu")
+dialogue_lines = Array[String](["Zombie: Hello, glad to meet you", "Player: Hey .. you're not supposed to be aggresiv ?", "Zombie : No, it's not implemented yet"])
+interaction_label = NodePath("InteractionLabel")
+interact_name = "Test Panel"
+metadata/_custom_type_script = "uid://dig2g8rgyp0it"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/DialogueInteractable6"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_adb74")
+
+[node name="InteractionLabel" type="Label" parent="ZombieZone/Interactables/DialogueInteractable6"]
+z_index = 1
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -31.0
+offset_right = 29.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Zombie"
+label_settings = ExtResource("9_bcnxi")
+
+[node name="DialogueInteractable7" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+position = Vector2(390, 88)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_18nlu")
+dialogue_lines = Array[String](["Be careful not to get too close to this stable", "Indeed, due to the lack of certain tiles in the tileset,", "it could collapse at any moment.", "Thank you for your understanding"])
+interaction_label = NodePath("InteractionLabel")
+interact_name = "Test Panel"
+metadata/_custom_type_script = "uid://dig2g8rgyp0it"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/DialogueInteractable7"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_adb74")
+
+[node name="InteractionLabel" type="Label" parent="ZombieZone/Interactables/DialogueInteractable7"]
+z_index = 1
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -31.0
+offset_right = 9.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Wobbly barn"
+label_settings = ExtResource("9_bcnxi")
 
 [node name="Destructibles" type="Node2D" parent="ZombieZone"]
+y_sort_enabled = true
 
 [node name="Rock" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
-position = Vector2(253, 101)
+position = Vector2(30, 238)
 
 [node name="Rock2" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
-position = Vector2(278, 139)
+position = Vector2(114, 78)
 
 [node name="Rock3" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
-position = Vector2(305, 85)
+position = Vector2(381, 46)
+
+[node name="Log6" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(57, 163)
+
+[node name="Log7" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(86, 164)
+
+[node name="Log10" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(69, 187)
+
+[node name="Log8" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(106, 100)
+
+[node name="Log9" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(134, 104)
+
+[node name="Log11" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(120, 118)
+
+[node name="Log12" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(148, 123)
+
+[node name="Log13" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(167, 144)
+
+[node name="Log14" parent="ZombieZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(141, 148)
+
+[node name="Destructible28" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(34, 71)
+
+[node name="Destructible35" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(46, 89)
+
+[node name="Destructible36" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(25, 91)
+
+[node name="Destructible44" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(38, 101)
+
+[node name="Destructible29" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(22, 62)
+
+[node name="Destructible37" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(49, 77)
+
+[node name="Destructible38" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(22, 77)
+
+[node name="Destructible45" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(35, 83)
+
+[node name="Destructible30" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(38, 24)
+
+[node name="Destructible39" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(46, 49)
+
+[node name="Destructible40" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(25, 51)
+
+[node name="Destructible46" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(38, 61)
+
+[node name="Destructible31" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(22, 22)
+
+[node name="Destructible41" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(57, 36)
+
+[node name="Destructible42" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(22, 37)
+
+[node name="Destructible47" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(35, 43)
+
+[node name="Destructible32" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(76, 37)
+
+[node name="Destructible43" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(87, 34)
+
+[node name="Destructible48" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(56, 45)
+
+[node name="Destructible49" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(87, 47)
+
+[node name="Destructible33" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(46, 32)
+
+[node name="Destructible50" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(76, 24)
+
+[node name="Destructible34" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(94, 37)
+
+[node name="Destructible53" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(105, 34)
+
+[node name="Destructible54" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(105, 47)
+
+[node name="Destructible55" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(94, 24)
+
+[node name="Destructible51" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(59, 26)
+
+[node name="Destructible52" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(68, 49)
 
 [node name="Decoration" type="Node2D" parent="ZombieZone"]
 y_sort_enabled = true
@@ -1464,3 +1682,13 @@ shape = SubResource("RectangleShape2D_c16ls")
 [node name="Interactables" type="Node2D" parent="EndProjectZone"]
 
 [node name="Destructibles" type="Node2D" parent="EndProjectZone"]
+
+[node name="ZombieTileset0180Capa181" type="Sprite2D" parent="."]
+position = Vector2(1045, 336)
+texture = ExtResource("20_k6f3i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ZombieTileset0180Capa181"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieTileset0180Capa181/StaticBody2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_58gk3")
