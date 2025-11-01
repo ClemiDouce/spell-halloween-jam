@@ -12,7 +12,9 @@ func _ready() -> void:
 
 
 func show_prompt():
-	interaction_label.show()
+	if interaction_label:
+		interaction_label.show()
 	
 func hide_prompt():
-	interaction_label.hide()
+	if interaction_label:
+		interaction_label.hide()

@@ -43,8 +43,15 @@ func display_text(text_to_display: String):
 	self.global_position = final_position
 	
 	dialogue_label.text = ""
-	_display_letters()
-	
+	dialogue_label.visible_ratio = 0.
+	_display_letters_tween()
+
+func _display_letters_tween():
+	dialogue_label.text = text
+	var dialogue_tween = create_tween()
+	dialogue_tween.tween_property(dialogue_label, "visible_ratio", 1., text.length() * letter_time)
+	dialogue_tween.tween_callback(finished.emit)
+
 func _display_letters():
 	dialogue_label.text += text[letter_index]
 	letter_index += 1

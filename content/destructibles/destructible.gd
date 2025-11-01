@@ -12,9 +12,4 @@ func _ready() -> void:
 	#animation_player.play("wind")
 
 func destroy():
-	sprite.hide()
-	destroyed.emit()
-	animation_player.speed_scale = 1.
-	animation_player.play("destruct")
-	await animation_player.animation_finished
-	queue_free()
+	pass

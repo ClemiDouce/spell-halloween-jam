@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b6i4s437v61fj"]
+[gd_scene load_steps=66 format=3 uid="uid://b6i4s437v61fj"]
 
 [ext_resource type="PackedScene" uid="uid://2qeymtsc1we4" path="res://scenes/map_art.tscn" id="1_c1pb6"]
 [ext_resource type="PackedScene" uid="uid://14333omabcms" path="res://content/player/player.tscn" id="2_pw63i"]
@@ -18,8 +18,30 @@
 [ext_resource type="Resource" uid="uid://b3kwj0bx04dwb" path="res://data/dialogue/zones/village/village_50.tres" id="12_r6p65"]
 [ext_resource type="Resource" uid="uid://bpdlq0audcmxa" path="res://data/dialogue/zones/village/village_75.tres" id="13_si52b"]
 [ext_resource type="Resource" uid="uid://bb8t8hbxnihst" path="res://data/dialogue/zones/village/village_100.tres" id="14_01n6w"]
+[ext_resource type="Resource" uid="uid://ltxy3ebf603i" path="res://data/dialogue/zones/village/village_start.tres" id="15_cn4eu"]
 [ext_resource type="PackedScene" uid="uid://c61c6h6sh2hjs" path="res://content/destructibles/rock.tscn" id="19_7nt27"]
+[ext_resource type="Resource" uid="uid://bt4olgn8ujvnr" path="res://data/tool_data/axe_tool.tres" id="19_xdqt8"]
+[ext_resource type="Script" uid="uid://onrf7o70u4wf" path="res://content/discoverable/show_condition.gd" id="20_adb74"]
 [ext_resource type="Texture2D" uid="uid://bemh7yqsr4he1" path="res://assets/art/zombie_tileset/Zombie-Tileset---_0180_Capa-181.png" id="20_k6f3i"]
+[ext_resource type="Resource" uid="uid://cpux6vbv6mc78" path="res://data/tool_data/pickaxe_tool.tres" id="21_58gk3"]
+[ext_resource type="Resource" uid="uid://h8m5ctvvw767" path="res://data/dialogue/zones/forest/forest_start.tres" id="22_0wyf6"]
+[ext_resource type="Resource" uid="uid://cwvmwtv3baji2" path="res://data/tool_data/inventory_tool.tres" id="22_to7gp"]
+[ext_resource type="Resource" uid="uid://cuky3bsrmxu0o" path="res://data/dialogue/zones/forest/forest_25.tres" id="23_xp01v"]
+[ext_resource type="Resource" uid="uid://b20afjf6hhrmo" path="res://data/dialogue/zones/forest/forest_50.tres" id="24_jix7a"]
+[ext_resource type="Resource" uid="uid://bfemag4u5jxaw" path="res://data/dialogue/zones/forest/forest_75.tres" id="25_segjr"]
+[ext_resource type="PackedScene" uid="uid://dd6upaj7uugf0" path="res://content/firecamp/firecamp.tscn" id="25_u0fll"]
+[ext_resource type="Resource" uid="uid://bjaowwma2qq0f" path="res://data/dialogue/zones/forest/forest_100.tres" id="26_beobj"]
+[ext_resource type="Resource" uid="uid://b8yak5y1idgm5" path="res://data/dialogue/zones/zombie/zombie_start.tres" id="28_267kh"]
+[ext_resource type="Resource" uid="uid://dmhmcacvc2fnj" path="res://data/dialogue/zones/zombie/zombie_25.tres" id="29_86meh"]
+[ext_resource type="Resource" uid="uid://bsmge7cuffp4f" path="res://data/dialogue/zones/zombie/zombie_50.tres" id="30_duuju"]
+[ext_resource type="Resource" uid="uid://bh7fh6k26yayn" path="res://data/dialogue/zones/zombie/zombie_75.tres" id="31_8dxha"]
+[ext_resource type="Resource" uid="uid://k4qtur6nd3bt" path="res://data/dialogue/zones/zombie/zombie_100.tres" id="32_j4epa"]
+[ext_resource type="Resource" uid="uid://b534qdwyml186" path="res://data/dialogue/zones/end/end_start.tres" id="36_ruju6"]
+[ext_resource type="Resource" uid="uid://db405ikbyl14h" path="res://data/dialogue/zones/end/end_25.tres" id="37_5nybl"]
+[ext_resource type="Resource" uid="uid://32grioncu7l3" path="res://data/dialogue/zones/end/end_50.tres" id="38_cq0lk"]
+[ext_resource type="Resource" uid="uid://dkkaqroqpfldq" path="res://data/dialogue/zones/end/end_75.tres" id="39_j2yw6"]
+[ext_resource type="Resource" uid="uid://vfqo4blkxbqv" path="res://data/dialogue/zones/end/end100.tres" id="40_8pjrr"]
+[ext_resource type="Texture2D" uid="uid://bx5dkxwdgyp7i" path="res://assets/art/firecamp/16x32 Idle-Sheet.png" id="42_xp01v"]
 
 [sub_resource type="Animation" id="Animation_c1pb6"]
 resource_name = "cinema_in"
@@ -114,6 +136,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1pb6"]
 size = Vector2(44.5, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0fll"]
+size = Vector2(20, 14)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_01n6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c16ls"]
@@ -132,9 +157,57 @@ size = Vector2(27.0625, 22.5)
 size = Vector2(114, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adb74"]
+size = Vector2(28, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p3nn"]
+size = Vector2(15.5, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58gk3"]
 size = Vector2(32, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p3nn"]
+radius = 19.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_segjr"]
+atlas = ExtResource("42_xp01v")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beobj"]
+atlas = ExtResource("42_xp01v")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_267kh"]
+atlas = ExtResource("42_xp01v")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86meh"]
+atlas = ExtResource("42_xp01v")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duuju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_segjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beobj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_267kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86meh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dxha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wyf6"]
+size = Vector2(47, 220)
 
 [node name="MainScene" type="Node2D"]
 y_sort_enabled = true
@@ -146,7 +219,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_pw63i")]
 y_sort_enabled = true
-position = Vector2(1157, 388)
+position = Vector2(61, 143)
 walk_speed = 100.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -154,7 +227,6 @@ walk_speed = 100.0
 [node name="ZoneProgress" parent="CanvasLayer" instance=ExtResource("5_c16ls")]
 
 [node name="CinematicEffect" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,37 +266,7 @@ libraries = {
 player_node = NodePath("../Player")
 
 [node name="StartZone" type="Node2D" parent="."]
-
-[node name="DialogueInteractable" type="Area2D" parent="StartZone" node_paths=PackedStringArray("interaction_label")]
-position = Vector2(168, 91)
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["-- Starting Zone --", "The one who read that is stupid", "Damned"])
-interaction_label = NodePath("InteractionLabel")
-interact_name = "Test Panel"
-metadata/_custom_type_script = "uid://dig2g8rgyp0it"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone/DialogueInteractable"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_c1pb6")
-
-[node name="InteractionLabel" type="Label" parent="StartZone/DialogueInteractable"]
-z_index = 1
-custom_minimum_size = Vector2(50, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -30.0
-offset_right = 25.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-label_settings = ExtResource("9_bcnxi")
+y_sort_enabled = true
 
 [node name="DialogueInteractable2" type="Area2D" parent="StartZone" node_paths=PackedStringArray("interaction_label")]
 position = Vector2(456, 123)
@@ -272,7 +314,7 @@ metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone/DialogueInteractable3"]
 position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_c1pb6")
+shape = SubResource("RectangleShape2D_u0fll")
 
 [node name="InteractionLabel" type="Label" parent="StartZone/DialogueInteractable3"]
 z_index = 1
@@ -291,7 +333,7 @@ grow_vertical = 0
 text = "Starting Point"
 label_settings = ExtResource("9_bcnxi")
 
-[node name="ToolInteractable" type="Area2D" parent="StartZone" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
+[node name="ScytheTool" type="Area2D" parent="StartZone" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
 position = Vector2(168, 230)
 collision_layer = 2
 collision_mask = 0
@@ -302,19 +344,20 @@ interaction_label = NodePath("Label")
 interact_name = "Axe"
 metadata/_custom_type_script = "uid://dm5bkbi4mbc6c"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone/ToolInteractable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone/ScytheTool"]
 shape = SubResource("CircleShape2D_01n6w")
 
-[node name="Label" type="Label" parent="StartZone/ToolInteractable"]
+[node name="Label" type="Label" parent="StartZone/ScytheTool"]
+z_index = 1
 offset_left = -20.0
-offset_top = -24.0
+offset_top = 11.0
 offset_right = 20.0
-offset_bottom = -11.0
+offset_bottom = 24.0
 text = "Scythe"
 label_settings = ExtResource("9_bcnxi")
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="StartZone/ToolInteractable"]
+[node name="Sprite2D" type="Sprite2D" parent="StartZone/ScytheTool"]
 texture = ExtResource("11_bcnxi")
 
 [node name="Destructibles" type="Node2D" parent="StartZone"]
@@ -540,6 +583,7 @@ position = Vector2(152, 176)
 position = Vector2(215, 79)
 
 [node name="VillageZone" type="Area2D" parent="." node_paths=PackedStringArray("destructibles_parent")]
+y_sort_enabled = true
 position = Vector2(480, 0)
 collision_layer = 0
 collision_mask = 4
@@ -547,7 +591,7 @@ monitorable = false
 script = ExtResource("6_c16ls")
 zone_name = "Village"
 destructibles_parent = NodePath("Destructibles")
-dialogues_steps = Array[ExtResource("10_e1cbu")]([ExtResource("11_mngbo"), ExtResource("12_r6p65"), ExtResource("13_si52b"), ExtResource("14_01n6w")])
+dialogues_steps = Array[ExtResource("10_e1cbu")]([ExtResource("15_cn4eu"), ExtResource("11_mngbo"), ExtResource("12_r6p65"), ExtResource("13_si52b"), ExtResource("14_01n6w")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone"]
 visible = false
@@ -555,6 +599,7 @@ position = Vector2(240, 136)
 shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Destructibles" type="Node2D" parent="VillageZone"]
+y_sort_enabled = true
 
 [node name="Destructible" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(124, 219)
@@ -562,29 +607,11 @@ position = Vector2(124, 219)
 [node name="Destructible2" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(144, 219)
 
-[node name="Destructible3" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(164, 219)
-
-[node name="Destructible4" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(184, 219)
-
-[node name="Destructible5" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(205, 219)
-
 [node name="Destructible9" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(116, 226)
 
 [node name="Destructible10" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(136, 226)
-
-[node name="Destructible11" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(156, 226)
-
-[node name="Destructible12" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(176, 226)
-
-[node name="Destructible13" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(197, 226)
 
 [node name="Destructible17" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(124, 231)
@@ -595,56 +622,32 @@ position = Vector2(144, 231)
 [node name="Destructible19" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(164, 231)
 
-[node name="Destructible20" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(184, 231)
-
-[node name="Destructible21" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(205, 231)
-
-[node name="Destructible25" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+[node name="Destructible25" parent="VillageZone/Destructibles" groups=["axe_conditions"] instance=ExtResource("3_7ykc4")]
 position = Vector2(116, 238)
 
-[node name="Destructible26" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+[node name="Destructible26" parent="VillageZone/Destructibles" groups=["axe_conditions"] instance=ExtResource("3_7ykc4")]
 position = Vector2(136, 238)
 
 [node name="Destructible27" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(156, 238)
 
-[node name="Destructible28" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(176, 238)
-
-[node name="Destructible29" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(197, 238)
-
-[node name="Destructible33" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+[node name="Destructible33" parent="VillageZone/Destructibles" groups=["axe_conditions"] instance=ExtResource("3_7ykc4")]
 position = Vector2(124, 244)
 
-[node name="Destructible34" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+[node name="Destructible34" parent="VillageZone/Destructibles" groups=["axe_conditions"] instance=ExtResource("3_7ykc4")]
 position = Vector2(144, 244)
 
 [node name="Destructible35" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(164, 244)
 
-[node name="Destructible36" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(184, 244)
-
-[node name="Destructible37" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(205, 244)
-
-[node name="Destructible41" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+[node name="Destructible41" parent="VillageZone/Destructibles" groups=["axe_conditions"] instance=ExtResource("3_7ykc4")]
 position = Vector2(116, 251)
 
-[node name="Destructible42" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+[node name="Destructible42" parent="VillageZone/Destructibles" groups=["axe_conditions"] instance=ExtResource("3_7ykc4")]
 position = Vector2(136, 251)
 
 [node name="Destructible43" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(156, 251)
-
-[node name="Destructible44" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(176, 251)
-
-[node name="Destructible45" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(197, 251)
 
 [node name="Destructible8" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(106, 46)
@@ -700,239 +703,122 @@ position = Vector2(118, 78)
 [node name="Destructible60" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(139, 78)
 
-[node name="Destructible16" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(253, 24)
-
 [node name="Destructible22" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(273, 24)
+position = Vector2(255, 43)
 
 [node name="Destructible31" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(294, 24)
-
-[node name="Destructible46" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(265, 31)
+position = Vector2(269, 33)
 
 [node name="Destructible47" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(286, 31)
-
-[node name="Destructible51" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(253, 36)
+position = Vector2(270, 42)
 
 [node name="Destructible52" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(273, 36)
+position = Vector2(269, 54)
 
 [node name="Destructible56" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(294, 36)
-
-[node name="Destructible61" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(265, 43)
+position = Vector2(280, 30)
 
 [node name="Destructible62" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(286, 43)
 
-[node name="Destructible63" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(253, 49)
-
 [node name="Destructible64" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(273, 49)
+position = Vector2(254, 57)
 
 [node name="Destructible65" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(294, 49)
-
-[node name="Destructible67" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(265, 56)
+position = Vector2(256, 29)
 
 [node name="Destructible68" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(286, 56)
 
-[node name="Destructible66" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(253, 60)
-
 [node name="Destructible69" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(273, 60)
+position = Vector2(265, 67)
 
 [node name="Destructible70" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(294, 60)
 
-[node name="Destructible71" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(265, 67)
-
 [node name="Destructible72" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(286, 67)
-
-[node name="Destructible73" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(253, 71)
+position = Vector2(281, 68)
 
 [node name="Destructible74" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(273, 71)
+position = Vector2(249, 71)
 
 [node name="Destructible75" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(294, 71)
 
-[node name="Destructible76" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(265, 78)
-
 [node name="Destructible77" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(286, 78)
-
-[node name="Destructible78" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(234, 80)
-
-[node name="Destructible79" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(254, 80)
+position = Vector2(274, 81)
 
 [node name="Destructible80" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(275, 80)
-
-[node name="Destructible81" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(246, 87)
-
-[node name="Destructible82" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(267, 87)
-
-[node name="Destructible83" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(234, 92)
-
-[node name="Destructible84" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(254, 92)
+position = Vector2(258, 80)
 
 [node name="Destructible85" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(275, 92)
-
-[node name="Destructible86" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(246, 99)
-
-[node name="Destructible87" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(267, 99)
+position = Vector2(243, 92)
 
 [node name="Destructible88" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(409, 99)
-
-[node name="Destructible89" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(429, 99)
-
-[node name="Destructible91" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(421, 106)
-
-[node name="Destructible92" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(442, 106)
-
-[node name="Destructible90" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(389, 109)
-
-[node name="Destructible93" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(409, 109)
 
+[node name="Destructible89" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(429, 109)
+
+[node name="Destructible91" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(421, 116)
+
+[node name="Destructible92" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(442, 116)
+
+[node name="Destructible90" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(389, 119)
+
+[node name="Destructible93" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(409, 119)
+
 [node name="Destructible94" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(401, 116)
+position = Vector2(401, 126)
 
 [node name="Destructible95" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(422, 116)
+position = Vector2(422, 126)
 
 [node name="Destructible96" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(348, 109)
+position = Vector2(348, 119)
 
 [node name="Destructible97" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(368, 109)
+position = Vector2(368, 119)
 
 [node name="Destructible98" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(360, 116)
+position = Vector2(360, 126)
 
 [node name="Destructible99" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(381, 116)
-
-[node name="Destructible100" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(307, 109)
+position = Vector2(381, 126)
 
 [node name="Destructible101" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(327, 109)
-
-[node name="Destructible102" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(319, 116)
+position = Vector2(327, 119)
 
 [node name="Destructible103" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(340, 116)
+position = Vector2(340, 126)
 
 [node name="Destructible104" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(389, 109)
+position = Vector2(389, 119)
 
 [node name="Destructible105" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(348, 109)
+position = Vector2(348, 119)
 
 [node name="Destructible106" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(368, 109)
+position = Vector2(368, 119)
 
 [node name="Destructible107" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(360, 116)
+position = Vector2(360, 126)
 
 [node name="Destructible108" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(381, 116)
-
-[node name="Destructible109" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(307, 109)
+position = Vector2(381, 126)
 
 [node name="Destructible110" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(327, 109)
-
-[node name="Destructible111" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(319, 116)
+position = Vector2(327, 119)
 
 [node name="Destructible112" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(340, 116)
-
-[node name="Destructible113" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(265, 109)
-
-[node name="Destructible114" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(285, 109)
-
-[node name="Destructible115" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(277, 116)
-
-[node name="Destructible116" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(298, 116)
-
-[node name="Destructible117" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(224, 109)
-
-[node name="Destructible118" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(244, 109)
-
-[node name="Destructible119" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(236, 116)
-
-[node name="Destructible120" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(257, 116)
-
-[node name="Destructible121" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(265, 109)
-
-[node name="Destructible122" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(285, 109)
-
-[node name="Destructible123" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(277, 116)
-
-[node name="Destructible124" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(298, 116)
-
-[node name="Destructible125" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(224, 109)
-
-[node name="Destructible126" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(244, 109)
-
-[node name="Destructible127" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(236, 116)
-
-[node name="Destructible128" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(257, 116)
+position = Vector2(340, 126)
 
 [node name="Destructible7" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(19, 125)
-
-[node name="Destructible32" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(39, 125)
 
 [node name="Destructible57" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(11, 132)
@@ -943,9 +829,6 @@ position = Vector2(31, 132)
 [node name="Destructible130" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(19, 137)
 
-[node name="Destructible131" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(39, 137)
-
 [node name="Destructible132" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(11, 144)
 
@@ -955,47 +838,11 @@ position = Vector2(31, 144)
 [node name="Destructible134" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(19, 150)
 
-[node name="Destructible135" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(39, 150)
-
-[node name="Destructible144" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(47, 119)
-
-[node name="Destructible146" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(59, 126)
-
-[node name="Destructible147" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(47, 131)
-
-[node name="Destructible149" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(59, 138)
-
-[node name="Destructible150" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(47, 144)
-
-[node name="Destructible152" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(53, 154)
-
-[node name="Destructible151" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(67, 144)
-
 [node name="Destructible136" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(11, 157)
 
 [node name="Destructible137" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(31, 157)
-
-[node name="Destructible138" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(44, 159)
-
-[node name="Destructible139" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(36, 166)
-
-[node name="Destructible140" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(44, 172)
-
-[node name="Destructible141" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(36, 179)
 
 [node name="Destructible142" parent="VillageZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(21, 162)
@@ -1004,102 +851,7 @@ position = Vector2(21, 162)
 position = Vector2(21, 162)
 
 [node name="Interactables" type="Node2D" parent="VillageZone"]
-
-[node name="DialogueInteractable" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label")]
-position = Vector2(296, 104)
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["Hungry ?", "Choose Random Burger !", "Angry ? ", "Touch grass"])
-interaction_label = NodePath("InteractionLabel")
-interact_name = "Test Panel"
-metadata/_custom_type_script = "uid://dig2g8rgyp0it"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/DialogueInteractable"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_c1pb6")
-
-[node name="InteractionLabel" type="Label" parent="VillageZone/Interactables/DialogueInteractable"]
-z_index = 1
-custom_minimum_size = Vector2(50, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -24.0
-offset_right = 25.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Info Board"
-label_settings = ExtResource("9_bcnxi")
-
-[node name="DialogueInteractable3" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label")]
-position = Vector2(200, 90)
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["Hungry ?", "Choose Random Burger !", "Angry ? ", "Touch grass"])
-interaction_label = NodePath("InteractionLabel")
-interact_name = "Test Panel"
-metadata/_custom_type_script = "uid://dig2g8rgyp0it"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/DialogueInteractable3"]
-position = Vector2(-7, 11)
-shape = SubResource("RectangleShape2D_c1pb6")
-
-[node name="InteractionLabel" type="Label" parent="VillageZone/Interactables/DialogueInteractable3"]
-z_index = 1
-custom_minimum_size = Vector2(50, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -42.0
-offset_right = 18.0
-offset_bottom = -28.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Missplaced Door"
-label_settings = ExtResource("9_bcnxi")
-
-[node name="DialogueInteractable4" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label")]
-position = Vector2(41, 60)
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["Hungry ?", "Choose Random Burger !", "Angry ? ", "Touch grass"])
-interaction_label = NodePath("InteractionLabel")
-interact_name = "Test Panel"
-metadata/_custom_type_script = "uid://dig2g8rgyp0it"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/DialogueInteractable4"]
-position = Vector2(-3.25, 12)
-shape = SubResource("RectangleShape2D_c1pb6")
-
-[node name="InteractionLabel" type="Label" parent="VillageZone/Interactables/DialogueInteractable4"]
-z_index = 1
-custom_minimum_size = Vector2(50, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -27.0
-offset_top = -30.0
-offset_right = 63.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Strange Wall"
-label_settings = ExtResource("9_bcnxi")
+y_sort_enabled = true
 
 [node name="DialogueInteractable5" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label")]
 position = Vector2(216, 217)
@@ -1107,7 +859,7 @@ collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["For the person that hidded my axe", "Please, git it back to me", "Or just free the path of the logs", "I just hope you didn't lost it on the grass"])
+dialogue_lines = Array[String](["To the person who hid my axe", "Please return it to me", "and don't lose it in the grass."])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
@@ -1165,13 +917,59 @@ grow_vertical = 0
 text = "Gold in a field"
 label_settings = ExtResource("9_bcnxi")
 
+[node name="AxeTool" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
+position = Vector2(125, 247)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("9_si52b")
+tool_sprite = NodePath("Sprite2D")
+tool_data = ExtResource("19_xdqt8")
+interaction_label = NodePath("Label")
+interact_name = "Axe"
+metadata/_custom_type_script = "uid://dm5bkbi4mbc6c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/AxeTool"]
+shape = SubResource("CircleShape2D_01n6w")
+
+[node name="Label" type="Label" parent="VillageZone/Interactables/AxeTool"]
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = -11.0
+text = "Axe"
+label_settings = ExtResource("9_bcnxi")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VillageZone/Interactables/AxeTool"]
+texture = ExtResource("11_bcnxi")
+
+[node name="DiscoverableComponent" type="Node" parent="VillageZone/Interactables/AxeTool" node_paths=PackedStringArray("target")]
+script = ExtResource("20_adb74")
+target = NodePath("..")
+group_name = "axe_conditions"
+metadata/_custom_type_script = "uid://onrf7o70u4wf"
+
+[node name="Log18" parent="VillageZone" instance=ExtResource("4_pu3yx")]
+position = Vector2(250, 257)
+
+[node name="Log21" parent="VillageZone" instance=ExtResource("4_pu3yx")]
+position = Vector2(232, 254)
+
+[node name="Log19" parent="VillageZone" instance=ExtResource("4_pu3yx")]
+position = Vector2(253, 239)
+
+[node name="Log20" parent="VillageZone" instance=ExtResource("4_pu3yx")]
+position = Vector2(236, 234)
+
 [node name="FarmLandZone" type="Area2D" parent="." node_paths=PackedStringArray("destructibles_parent")]
+y_sort_enabled = true
 position = Vector2(480, 270)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("6_c16ls")
 zone_name = "farm_land_demo"
 destructibles_parent = NodePath("Destructibles")
+dialogues_steps = Array[ExtResource("10_e1cbu")]([ExtResource("22_0wyf6"), ExtResource("23_xp01v"), ExtResource("24_jix7a"), ExtResource("25_segjr"), ExtResource("26_beobj")])
 metadata/_custom_type_script = "uid://dxyrflls3adxw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FarmLandZone"]
@@ -1180,6 +978,7 @@ position = Vector2(240, 136)
 shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Interactables" type="Node2D" parent="FarmLandZone"]
+y_sort_enabled = true
 
 [node name="DialogueInteractable5" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("interaction_label")]
 position = Vector2(377, 214)
@@ -1251,7 +1050,7 @@ collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["Here lies ..", "Video Game Industry", "Wow, so dark"])
+dialogue_lines = Array[String](["Don't wait for plants to grow", "Apparently, they're missing something", "To be implemented"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
@@ -1277,44 +1076,120 @@ grow_vertical = 0
 text = "Farm pannel"
 label_settings = ExtResource("9_bcnxi")
 
+[node name="PickaxeTool" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
+position = Vector2(44, 128)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("9_si52b")
+tool_sprite = NodePath("Sprite2D")
+tool_data = ExtResource("21_58gk3")
+interaction_label = NodePath("Label")
+interact_name = "Axe"
+metadata/_custom_type_script = "uid://dm5bkbi4mbc6c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmLandZone/Interactables/PickaxeTool"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_01n6w")
+
+[node name="Label" type="Label" parent="FarmLandZone/Interactables/PickaxeTool"]
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 22.0
+offset_bottom = -14.0
+text = "Pickaxe"
+label_settings = ExtResource("9_bcnxi")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="FarmLandZone/Interactables/PickaxeTool"]
+position = Vector2(0, -2)
+texture = ExtResource("11_bcnxi")
+
+[node name="DiscoverableComponent" type="Node" parent="FarmLandZone/Interactables/PickaxeTool" node_paths=PackedStringArray("target")]
+script = ExtResource("20_adb74")
+target = NodePath("..")
+group_name = "pickaxe_conditions"
+metadata/_custom_type_script = "uid://onrf7o70u4wf"
+
 [node name="Destructibles" type="Node2D" parent="FarmLandZone"]
 y_sort_enabled = true
 
 [node name="Log2" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(396, 29)
+position = Vector2(314, 158)
 
-[node name="Log3" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(418, 28)
+[node name="Log3" parent="FarmLandZone/Destructibles" groups=["pickaxe_conditions"] instance=ExtResource("4_pu3yx")]
+position = Vector2(38, 121)
 
-[node name="Log4" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(436, 30)
+[node name="Log4" parent="FarmLandZone/Destructibles" groups=["pickaxe_conditions"] instance=ExtResource("4_pu3yx")]
+position = Vector2(46, 126)
 
-[node name="Log5" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(416, 44)
+[node name="Log5" parent="FarmLandZone/Destructibles" groups=["pickaxe_conditions"] instance=ExtResource("4_pu3yx")]
+position = Vector2(37, 133)
 
 [node name="Log6" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(392, 53)
+position = Vector2(393, 60)
 
 [node name="Log7" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(415, 62)
+position = Vector2(335, 153)
 
-[node name="Log8" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(437, 49)
+[node name="Log8" parent="FarmLandZone/Destructibles" groups=["pickaxe_conditions"] instance=ExtResource("4_pu3yx")]
+position = Vector2(46, 138)
 
 [node name="Log9" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(440, 76)
+position = Vector2(355, 159)
 
 [node name="Log10" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
-position = Vector2(401, 76)
+position = Vector2(379, 53)
+
+[node name="Log14" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(361, 56)
+
+[node name="Log15" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(182, 108)
+
+[node name="Log16" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(168, 101)
+
+[node name="Log17" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(150, 104)
+
+[node name="Log22" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(223, 187)
+
+[node name="Log23" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(209, 180)
+
+[node name="Log24" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(191, 183)
+
+[node name="Log18" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(154, 53)
+
+[node name="Log21" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(170, 55)
+
+[node name="Log19" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(139, 59)
+
+[node name="Log20" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(122, 54)
+
+[node name="Log11" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(39, 203)
+
+[node name="Log12" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(42, 196)
+
+[node name="Log13" parent="FarmLandZone/Destructibles" instance=ExtResource("4_pu3yx")]
+position = Vector2(41, 210)
 
 [node name="Destructible" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(74, 104)
+position = Vector2(112, 102)
 
 [node name="Destructible2" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(80, 32)
 
 [node name="Destructible9" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(66, 111)
+position = Vector2(104, 109)
 
 [node name="Destructible10" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(72, 39)
@@ -1323,7 +1198,7 @@ position = Vector2(72, 39)
 position = Vector2(92, 39)
 
 [node name="Destructible17" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(74, 116)
+position = Vector2(112, 114)
 
 [node name="Destructible3" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(338, 229)
@@ -1356,7 +1231,7 @@ position = Vector2(456, 241)
 position = Vector2(57, 64)
 
 [node name="Destructible25" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(119, 50)
+position = Vector2(325, 99)
 
 [node name="Destructible26" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(70, 61)
@@ -1365,13 +1240,46 @@ position = Vector2(70, 61)
 position = Vector2(64, 69)
 
 [node name="Destructible33" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(128, 62)
+position = Vector2(334, 111)
 
 [node name="Destructible34" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(107, 64)
+position = Vector2(313, 113)
 
 [node name="Destructible41" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(117, 78)
+position = Vector2(323, 127)
+
+[node name="Destructible39" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(122, 199)
+
+[node name="Destructible40" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(136, 211)
+
+[node name="Destructible48" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(119, 215)
+
+[node name="Destructible49" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(139, 226)
+
+[node name="Destructible50" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(93, 152)
+
+[node name="Destructible51" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(107, 164)
+
+[node name="Destructible52" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(90, 168)
+
+[node name="Destructible53" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(121, 184)
+
+[node name="Destructible54" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(143, 179)
+
+[node name="Destructible55" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(135, 162)
+
+[node name="Destructible56" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(120, 154)
 
 [node name="Destructible42" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(54, 72)
@@ -1416,7 +1324,7 @@ position = Vector2(265, 247)
 position = Vector2(82, 43)
 
 [node name="Destructible28" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
-position = Vector2(297, 30)
+position = Vector2(310, 54)
 
 [node name="Destructible35" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(306, 42)
@@ -1427,13 +1335,24 @@ position = Vector2(285, 44)
 [node name="Destructible44" parent="FarmLandZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(295, 58)
 
+[node name="Rock" parent="FarmLandZone" instance=ExtResource("19_7nt27")]
+position = Vector2(466, 135)
+
+[node name="Rock2" parent="FarmLandZone" instance=ExtResource("19_7nt27")]
+position = Vector2(466, 159)
+
+[node name="Rock3" parent="FarmLandZone" instance=ExtResource("19_7nt27")]
+position = Vector2(439, 148)
+
 [node name="ZombieZone" type="Area2D" parent="." node_paths=PackedStringArray("destructibles_parent")]
+y_sort_enabled = true
 position = Vector2(960, 270)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("6_c16ls")
-zone_name = "zombie_shooter_proto"
+zone_name = "zombie_project_final_v56"
 destructibles_parent = NodePath("Destructibles")
+dialogues_steps = Array[ExtResource("10_e1cbu")]([ExtResource("28_267kh"), ExtResource("29_86meh"), ExtResource("30_duuju"), ExtResource("31_8dxha"), ExtResource("32_j4epa")])
 metadata/_custom_type_script = "uid://dxyrflls3adxw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone"]
@@ -1524,6 +1443,7 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_adb74")
 
 [node name="InteractionLabel" type="Label" parent="ZombieZone/Interactables/DialogueInteractable7"]
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(50, 0)
 anchors_preset = 7
@@ -1540,14 +1460,88 @@ grow_vertical = 0
 text = "Wobbly barn"
 label_settings = ExtResource("9_bcnxi")
 
+[node name="CarCrashInteractable" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+position = Vector2(66.5, 75)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_18nlu")
+dialogue_lines = Array[String](["I identify a lot with this car", "Crashing into the rock of too big a project"])
+interaction_label = NodePath("InteractionLabel")
+interact_name = "Test Panel"
+metadata/_custom_type_script = "uid://dig2g8rgyp0it"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/CarCrashInteractable"]
+position = Vector2(2.75, 12.5)
+shape = SubResource("RectangleShape2D_6p3nn")
+
+[node name="InteractionLabel" type="Label" parent="ZombieZone/Interactables/CarCrashInteractable"]
+z_index = 1
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -26.0
+offset_right = 48.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Crashed Car"
+label_settings = ExtResource("9_bcnxi")
+
+[node name="InventoryTool" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
+position = Vector2(31, 229)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("9_si52b")
+tool_sprite = NodePath("Sprite2D")
+tool_data = ExtResource("22_to7gp")
+interaction_label = NodePath("Label")
+interact_name = "Axe"
+metadata/_custom_type_script = "uid://dm5bkbi4mbc6c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/InventoryTool"]
+shape = SubResource("CircleShape2D_01n6w")
+
+[node name="Label" type="Label" parent="ZombieZone/Interactables/InventoryTool"]
+offset_left = -27.0
+offset_top = -36.0
+offset_right = 27.0
+offset_bottom = -7.0
+text = "Inventory
+System"
+label_settings = ExtResource("9_bcnxi")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ZombieZone/Interactables/InventoryTool"]
+texture = ExtResource("11_bcnxi")
+
+[node name="DiscoverableComponent" type="Node" parent="ZombieZone/Interactables/InventoryTool" node_paths=PackedStringArray("target")]
+script = ExtResource("20_adb74")
+target = NodePath("..")
+group_name = "inventory_conditions"
+metadata/_custom_type_script = "uid://onrf7o70u4wf"
+
 [node name="Destructibles" type="Node2D" parent="ZombieZone"]
 y_sort_enabled = true
 
 [node name="Rock" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
 position = Vector2(30, 238)
 
-[node name="Rock2" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
-position = Vector2(114, 78)
+[node name="Rock2" parent="ZombieZone/Destructibles" groups=["inventory_conditions"] instance=ExtResource("19_7nt27")]
+position = Vector2(104.5, 85)
+
+[node name="Rock4" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
+position = Vector2(262, 170)
+
+[node name="Rock5" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
+position = Vector2(287, 144)
+
+[node name="Rock6" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
+position = Vector2(312, 121)
 
 [node name="Rock3" parent="ZombieZone/Destructibles" instance=ExtResource("19_7nt27")]
 position = Vector2(381, 46)
@@ -1663,32 +1657,180 @@ position = Vector2(59, 26)
 [node name="Destructible52" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
 position = Vector2(68, 49)
 
+[node name="Destructible56" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(362, 35)
+
+[node name="Destructible57" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(336, 54)
+
+[node name="Destructible58" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(347, 51)
+
+[node name="Destructible59" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(340, 32)
+
+[node name="Destructible60" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(375, 58)
+
+[node name="Destructible61" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(336, 41)
+
+[node name="Destructible62" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(354, 54)
+
+[node name="Destructible63" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(365, 51)
+
+[node name="Destructible64" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(393, 53)
+
+[node name="Destructible65" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(354, 41)
+
+[node name="Destructible66" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(357, 25)
+
+[node name="Destructible67" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(346, 63)
+
+[node name="Destructible71" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(405, 139)
+
+[node name="Destructible76" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(326, 184)
+
+[node name="Destructible77" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(321, 196)
+
+[node name="Destructible78" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(322, 171)
+
+[node name="Destructible82" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(328, 221)
+
+[node name="Destructible83" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(318, 233)
+
+[node name="Destructible84" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(321, 209)
+
+[node name="Destructible79" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(327, 161)
+
+[node name="Destructible72" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(342, 158)
+
+[node name="Destructible73" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(360, 155)
+
+[node name="Destructible80" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(354, 145)
+
+[node name="Destructible74" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(374, 149)
+
+[node name="Destructible81" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(385, 139)
+
+[node name="Destructible75" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(341, 170)
+
+[node name="Destructible68" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(361, 65)
+
+[node name="Destructible69" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(380, 69)
+
+[node name="Destructible70" parent="ZombieZone/Destructibles" instance=ExtResource("3_7ykc4")]
+position = Vector2(393, 62)
+
 [node name="Decoration" type="Node2D" parent="ZombieZone"]
 y_sort_enabled = true
 
+[node name="ZombieTileset0180Capa181" type="Sprite2D" parent="ZombieZone"]
+position = Vector2(75.5, 73)
+texture = ExtResource("20_k6f3i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ZombieZone/ZombieTileset0180Capa181"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/ZombieTileset0180Capa181/StaticBody2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_58gk3")
+
 [node name="EndProjectZone" type="Area2D" parent="." node_paths=PackedStringArray("destructibles_parent")]
+y_sort_enabled = true
 position = Vector2(960, 0)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("6_c16ls")
 zone_name = "EndProject"
 destructibles_parent = NodePath("Destructibles")
+dialogues_steps = Array[ExtResource("10_e1cbu")]([ExtResource("36_ruju6"), ExtResource("37_5nybl"), ExtResource("38_cq0lk"), ExtResource("39_j2yw6"), ExtResource("40_8pjrr")])
 metadata/_custom_type_script = "uid://dxyrflls3adxw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndProjectZone"]
+visible = false
 position = Vector2(240, 136)
 shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Interactables" type="Node2D" parent="EndProjectZone"]
 
+[node name="Firecamp" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("end_dialog_position", "zone", "interaction_label") instance=ExtResource("25_u0fll")]
+position = Vector2(224, 103)
+end_dialog_position = NodePath("../../Marker2D")
+zone = NodePath("../..")
+interaction_label = NodePath("Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndProjectZone/Interactables/Firecamp"]
+shape = SubResource("CircleShape2D_6p3nn")
+
+[node name="Label" type="Label" parent="EndProjectZone/Interactables/Firecamp"]
+custom_minimum_size = Vector2(100, 30)
+offset_left = -48.0
+offset_top = -49.0
+offset_right = 48.0
+offset_bottom = -21.0
+text = "10 stone - Start Fire camp"
+label_settings = ExtResource("9_bcnxi")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EndProjectZone/Interactables"]
+position = Vector2(266, 101)
+sprite_frames = SubResource("SpriteFrames_duuju")
+autoplay = "default"
+frame_progress = 0.70556676
+
+[node name="DialogueInteractable" type="Area2D" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+position = Vector2(272, 99)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_18nlu")
+dialogue_lines = Array[String](["player: Hey, who are you ?", "???: .. implementing pnj first, and then i can ..", "player: he seems to talk to himself. I will start the fire", "???: ... and then microtransaction, vr version, ouya port, very important ..."])
+interaction_label = NodePath("Label")
+metadata/_custom_type_script = "uid://dig2g8rgyp0it"
+
+[node name="Label" type="Label" parent="EndProjectZone/Interactables/DialogueInteractable"]
+offset_left = -13.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = -11.0
+text = "???"
+label_settings = ExtResource("9_bcnxi")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndProjectZone/Interactables/DialogueInteractable"]
+position = Vector2(-4, 21)
+shape = SubResource("CircleShape2D_8dxha")
+
 [node name="Destructibles" type="Node2D" parent="EndProjectZone"]
 
-[node name="ZombieTileset0180Capa181" type="Sprite2D" parent="."]
-position = Vector2(1045, 336)
-texture = ExtResource("20_k6f3i")
+[node name="Marker2D" type="Marker2D" parent="EndProjectZone"]
+position = Vector2(355, 164)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="ZombieTileset0180Capa181"]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieTileset0180Capa181/StaticBody2D"]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_58gk3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-23, 100)
+shape = SubResource("RectangleShape2D_0wyf6")

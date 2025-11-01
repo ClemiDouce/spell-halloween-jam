@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://dkkaqroqpfldq"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_jx1cg"]
+
+[resource]
+script = ExtResource("1_jx1cg")
+lines = Array[String](["dev: Why make a fire if you're going to make such a ridiculous one...", "player: Do you need a big fire? There's only two of us, it'll be more than enough to keep us warm.", "dev: You always have to do as much as you can, otherwise what's the point of starting anything? ", "player: I'd rather start with something small. At least I know I'll finish it.", "player: And with night falling, it'll do us good!"])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

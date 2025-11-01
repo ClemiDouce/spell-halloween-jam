@@ -15,7 +15,7 @@ class_name Player extends CharacterBody2D
 var tool_speed := 0.7
 var have_axe := false
 var have_scythe := false
-var have_pickaxe := true
+var have_pickaxe := false
 
 var state := "idle"
 var last_direction := Vector2.DOWN
@@ -111,7 +111,7 @@ func check_destroyable(tool: String):
 func get_tool(tool_data: ToolData):
 	tool_get_sprite.texture = tool_data.icon
 	var tool_dialogue = [
-		"Vous avez obtenu la " + tool_data.tool_name,
+		"You've obtained the " + tool_data.tool_name,
 		tool_data.target,
 		tool_data.input_key
 	]
@@ -124,5 +124,6 @@ func get_tool(tool_data: ToolData):
 	elif !have_axe:
 		have_axe = true
 	elif !have_pickaxe:
-		have_scythe = true
-	
+		have_pickaxe = true
+	else:
+		Inventory.show()

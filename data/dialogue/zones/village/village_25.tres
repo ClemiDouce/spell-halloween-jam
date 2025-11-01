@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_j3pt6")
-lines = Array[String](["J'ai comme une impression de déja vu", "Ce placement de maison ..", "Ce style de pixel art ..", "Mais oui !", "Ca me rappelle mon premier projet !", "J'avais téléchargé un asset pack", "et j'ai essayé de faire du level design", "J'avais aucune connaissance", "Mais une grande envie de bien faire !"])
+lines = Array[String](["Hey, I know that street ", "It's much prettier without all that grass"])
 metadata/_custom_type_script = "uid://dehbnrn410uu4"

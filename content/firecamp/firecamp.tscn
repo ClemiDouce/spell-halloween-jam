@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://dd6upaj7uugf0"]
+
+[ext_resource type="Script" uid="uid://ccdwif5k0d0kf" path="res://content/firecamp/firecamp.gd" id="1_dk6w2"]
+[ext_resource type="Texture2D" uid="uid://o272rgiugvpe" path="res://assets/art/firecamp/Layer_1.PNG" id="2_ag0jo"]
+[ext_resource type="Texture2D" uid="uid://bn87fcbwvw3st" path="res://assets/art/firecamp/Layer_2.PNG" id="3_xxtxi"]
+[ext_resource type="Texture2D" uid="uid://du3ouc4bmbwuh" path="res://assets/art/firecamp/Layer_4.PNG" id="4_ath0o"]
+[ext_resource type="Texture2D" uid="uid://dqy7sfcmysvob" path="res://assets/art/firecamp/Layer_3.PNG" id="5_nrmmy"]
+[ext_resource type="Texture2D" uid="uid://dnmnqn7l0oyu8" path="res://assets/art/firecamp/Layer5_1.png" id="6_1awvu"]
+[ext_resource type="Texture2D" uid="uid://c67hpopmcmnwp" path="res://assets/art/firecamp/Layer5_2.png" id="7_jyyve"]
+[ext_resource type="Texture2D" uid="uid://cmtf0uhwu7e8d" path="res://assets/art/firecamp/Layer5_3.png" id="8_gm66i"]
+[ext_resource type="Texture2D" uid="uid://jt6eht14qadg" path="res://assets/art/firecamp/Layer5_4.png" id="9_jnhgn"]
+[ext_resource type="Texture2D" uid="uid://d7rsawic25kl" path="res://assets/art/firecamp/Layer5_5.png" id="10_h3ajl"]
+[ext_resource type="Texture2D" uid="uid://my7pobp36psx" path="res://assets/art/firecamp/Layer5_6.png" id="11_sh6mi"]
+[ext_resource type="Texture2D" uid="uid://b7tn88qg5f73o" path="res://assets/art/firecamp/Layer5_7.png" id="12_el41y"]
+[ext_resource type="Texture2D" uid="uid://dhjj333h7ot2n" path="res://assets/art/firecamp/Layer5_8.png" id="13_5agv2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhut3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1awvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jyyve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gm66i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jnhgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h3ajl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sh6mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_el41y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5agv2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag0jo"]
+height = 38.0
+
+[node name="Firecamp" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_dk6w2")
+
+[node name="Visuals" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(0.03, 0.03)
+
+[node name="BaseSprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(0, -601.3334)
+texture = ExtResource("2_ag0jo")
+
+[node name="RockSprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -601.3334)
+texture = ExtResource("3_xxtxi")
+
+[node name="GrassSprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -601.3334)
+texture = ExtResource("4_ath0o")
+
+[node name="WoodSprite" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -601.3334)
+texture = ExtResource("5_nrmmy")
+
+[node name="FireSprite" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -266.66672)
+sprite_frames = SubResource("SpriteFrames_hhut3")
+autoplay = "default"
+frame_progress = 0.14047235
+offset = Vector2(0, -334.66666)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ag0jo")

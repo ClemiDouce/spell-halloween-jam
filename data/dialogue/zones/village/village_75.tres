@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_2qfjx")
-lines = Array[String](["J'ai quand meme eu quelques bonnes idées", "Ce petit puit la ? Adorable", "Et cette charette ? Impeccable", "Je suis assez fière de moi finalement !"])
+lines = Array[String](["This village must have been abandoned a long time ago", "For so much grass to have had time to grow", "It's as if no one wanted to live here any more."])
 metadata/_custom_type_script = "uid://dehbnrn410uu4"

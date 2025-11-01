@@ -23,10 +23,10 @@ patch_margin_bottom = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="DialogueLabel" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
@@ -34,6 +34,7 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
 label_settings = SubResource("LabelSettings_oxhlp")
+visible_characters_behavior = 1
 
 [node name="CharacterTimer" type="Timer" parent="."]
 unique_name_in_owner = true

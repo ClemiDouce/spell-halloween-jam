@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://32grioncu7l3"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_uikuq"]
+
+[resource]
+script = ExtResource("1_uikuq")
+lines = Array[String](["???: ah and now grass? But you're going to make a fire? ", "player: Yes, do you mind? ", "???: No, but I'm glad I haven't made a fire system yet ", "player: Who are you anyway?", "dev: I'm the one responsible of the projects you've been walking through. ", "dev: It's not finished, but I promise I'll remove the extra door", "dev: fix the barn, pathfinding for zombies, vegetable growth ..."])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bfemag4u5jxaw"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_y5flf"]
+
+[resource]
+script = ExtResource("1_y5flf")
+lines = Array[String](["What could I possibly use all this wood for?", "Especially since I have nothing to collect it with", "So it just disappears when I cut it?", "Take that in your face, Lavoisier!"])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

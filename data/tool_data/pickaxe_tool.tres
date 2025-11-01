@@ -7,6 +7,6 @@
 script = ExtResource("1_a6qp7")
 tool_name = "Pickaxe"
 icon = ExtResource("1_pn3rn")
-input_key = "Use it with [X]"
-target = "Use it on rocks"
+input_key = "Use it with [X] on rocks"
+target = "Rock and stone, baby !"
 metadata/_custom_type_script = "uid://b0jqwcfayn8j5"

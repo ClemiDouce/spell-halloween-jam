@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://b8yak5y1idgm5"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_dms5i"]
+
+[resource]
+script = ExtResource("1_dms5i")
+lines = Array[String](["Damn, but it's chaos here", "Fortunately, I'm here to put everything back in order."])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

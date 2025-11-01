@@ -7,4 +7,6 @@
 script = ExtResource("1_f56j7")
 tool_name = "Inventory System"
 icon = ExtResource("1_p8iq4")
+input_key = "You can now carry what you break"
+target = "It's visible on the corner of your screen"
 metadata/_custom_type_script = "uid://b0jqwcfayn8j5"

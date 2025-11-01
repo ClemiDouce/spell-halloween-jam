@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://b47w4lq2qa5t8"]
+
+[ext_resource type="Script" uid="uid://5muxs1e77vnf" path="res://content/globals/inventory.gd" id="1_58gp3"]
+[ext_resource type="Texture2D" uid="uid://l7swn6vqiobk" path="res://assets/art/ressource/grass_icon.png" id="2_vsumi"]
+[ext_resource type="Texture2D" uid="uid://dmwgksoge8qnx" path="res://assets/art/ressource/wood_icon.png" id="3_js0xw"]
+[ext_resource type="Texture2D" uid="uid://bst74xc4p300r" path="res://assets/art/ressource/rock_icon.png" id="4_hk4cv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk1hj"]
+bg_color = Color(0.92941177, 0.92941177, 0.92941177, 0.75686276)
+border_color = Color(0.21722814, 0.26308697, 0.27858195, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_lytjf"]
+font_color = Color(0.27204677, 0.2720468, 0.2720468, 1)
+
+[node name="InventoryInterface" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_58gp3")
+
+[node name="ColorRect" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -28.0
+offset_right = 145.0
+offset_bottom = -3.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kk1hj")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RessourceList" type="HBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GrassLabel" type="HBoxContainer" parent="ColorRect/MarginContainer/RessourceList"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/RessourceList/GrassLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_vsumi")
+expand_mode = 2
+
+[node name="GrassLabel" type="Label" parent="ColorRect/MarginContainer/RessourceList/GrassLabel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_lytjf")
+horizontal_alignment = 1
+
+[node name="WoodRessource" type="HBoxContainer" parent="ColorRect/MarginContainer/RessourceList"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/RessourceList/WoodRessource"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_js0xw")
+expand_mode = 2
+
+[node name="WoodLabel" type="Label" parent="ColorRect/MarginContainer/RessourceList/WoodRessource"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_lytjf")
+horizontal_alignment = 1
+
+[node name="RockRessource" type="HBoxContainer" parent="ColorRect/MarginContainer/RessourceList"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/RessourceList/RockRessource"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_hk4cv")
+expand_mode = 2
+
+[node name="RockLabel" type="Label" parent="ColorRect/MarginContainer/RessourceList/RockRessource"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_lytjf")
+horizontal_alignment = 1

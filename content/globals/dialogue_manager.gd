@@ -23,7 +23,7 @@ func start_dialog(position: Vector2, lines: Array, cinematic: bool = false):
 	dialog_lines = lines
 	text_box_position = position
 	if cinematic:
-		await cinema_effect.cinema_in()
+		cinema_effect.cinema_in()
 	_show_text_box()
 	
 	

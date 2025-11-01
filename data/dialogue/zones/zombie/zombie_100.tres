@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://k4qtur6nd3bt"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_8axrx"]
+
+[resource]
+script = ExtResource("1_8axrx")
+lines = Array[String](["Grass and logs are cut, rocks are destroyed, my work here is done", "I wonder what awaits me in the next zone", "A haunted house? A space station? ", "Each new zone seems more ambitious than the last"])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

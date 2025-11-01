@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://b20afjf6hhrmo"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_b2f8m"]
+
+[resource]
+script = ExtResource("1_b2f8m")
+lines = Array[String](["On one of the graves, you can see that the person buried is called Motivation", "Funny name if you ask me."])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

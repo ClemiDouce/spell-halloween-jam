@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://b534qdwyml186"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_g7m26"]
+
+[resource]
+script = ExtResource("1_g7m26")
+lines = Array[String](["Oh, well, actually, there's not much", "Just a forest, a campfire site, and ...someone? At last!"])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"

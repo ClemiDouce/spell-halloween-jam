@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://ltxy3ebf603i"]
+
+[ext_resource type="Script" uid="uid://dehbnrn410uu4" path="res://data/dialogue/dialogue.gd" id="1_ajyy1"]
+
+[resource]
+script = ExtResource("1_ajyy1")
+lines = Array[String](["Oh, I see this village is still in its original state", "A little grass-cutting won't do it any harm."])
+metadata/_custom_type_script = "uid://dehbnrn410uu4"
