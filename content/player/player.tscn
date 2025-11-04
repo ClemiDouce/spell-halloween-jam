@@ -312,6 +312,7 @@ position = Vector2(0, -25)
 [node name="ToolSprite" type="Sprite2D" parent="DialoguePosition"]
 unique_name_in_owner = true
 visible = false
+z_index = 1
 
 [node name="DownDialoguePosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

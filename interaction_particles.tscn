@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75v4uh3qcda"]
+
+[ext_resource type="Texture2D" uid="uid://bvhmlrp0b1tqx" path="res://assets/art/tile_0033.png" id="1_02x26"]
+
+[sub_resource type="Curve" id="Curve_o8gg7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49999997, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="InteractionParticles" type="CPUParticles2D"]
+amount = 5
+texture = ExtResource("1_02x26")
+lifetime = 10.0
+preprocess = 5.0
+emission_shape = 2
+emission_sphere_radius = 4.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_amount_min = 1.7
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_o8gg7")
+color = Color(1, 0.9645, 0.29000002, 1)
