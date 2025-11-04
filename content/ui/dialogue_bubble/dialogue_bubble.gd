@@ -27,19 +27,27 @@ func display_text(text_to_display: String):
 		await resized
 		custom_minimum_size.y = size.y
 	
+	var top_y = floor(global_position.y / screen_size.y) * screen_size.y
 	var right_x = ceil(global_position.x / screen_size.x) * screen_size.x
 	var left_x = floor(global_position.x / screen_size.x) * screen_size.x
-	var half_size_x = size.x / 2
+	
+	var half_size = size / 2
 	final_position.y -= size.y + 16
-	final_position.x -= half_size_x # Remise au milieu
-	var offset := 0.
-	var middle_position = final_position.x + half_size_x
-	var off_right = abs(right_x - middle_position) < half_size_x + offset
-	var off_left = abs(left_x - middle_position) < half_size_x + offset
+	final_position.x -= half_size.x # Remise au milieu
+	var middle_position = final_position + half_size
+	
+	var off_top = abs(top_y - middle_position.y) < half_size.y
+	var off_right = abs(right_x - middle_position.x) < half_size.x
+	var off_left = abs(left_x - middle_position.x) < half_size.x
+	
 	if off_right:
-		final_position.x -= half_size_x + offset
+		final_position.x -= half_size.x
 	elif off_left:
-		final_position.x += half_size_x + offset
+		final_position.x += half_size.x
+	
+	if off_top:
+		final_position.y += half_size.y
+	
 	self.global_position = final_position
 	
 	dialogue_label.text = ""

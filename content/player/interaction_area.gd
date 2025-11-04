@@ -20,12 +20,16 @@ func _input(event: InputEvent):
 
 func _process(_delta: float) -> void:
 	if current_interaction and can_interact:
+		var first_interaction := false
 		current_interaction.sort_custom(_sort_by_nearest)
 		for i in current_interaction.size():
-			if i == 0:
+			var _inter = current_interaction[i]
+			if _inter.is_interactable and first_interaction == false:
+				first_interaction = true
 				current_interaction[i].show_prompt()
 			else:
-				current_interaction[i].hide_prompt()
+				if _inter.is_interactable:
+					current_interaction[i].hide_prompt()
 
 func on_interactable_entered(area: Area2D):
 	current_interaction.push_back(area as Interactable)

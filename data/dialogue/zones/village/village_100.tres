@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_k5sc7")
-lines = Array[String](["There you go, one good thing done!", "This village may have a few quirks", "but I'd say that's also part of its charm", "As if it were the first village to be built, a training village."])
+lines = Array[String](["There you go, one good thing done!", "It's a weird village, but i'm glad it's clean now", "But it look like the first village to be built, a training village."])
 metadata/_custom_type_script = "uid://dehbnrn410uu4"

@@ -43,6 +43,7 @@ func on_player_entered_zone(body: Node2D):
 	player = body as Player
 	if first_entrance:
 		first_entrance = false
+		player.tool_speed -= 0.1
 		await get_tree().create_timer(0.5).timeout
 		DialogueManager.start_dialog(self.global_position + Vector2(250, 135), dialogues_steps[0].lines, false)
 	

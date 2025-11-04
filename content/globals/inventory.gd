@@ -24,3 +24,14 @@ func add_ressource(ressource_name: String):
 			grass += 1
 			grass_label.text = str(grass)
 	
+func remove_ressource(ressource_name: String, value: int):
+	match(ressource_name):
+		"wood":
+			wood -= value
+			wood_label.text = str(wood)
+		"rock":
+			rock -= value
+			rock_label.text = str(rock)
+		"grass":
+			grass -= value
+			grass_label.text = str(grass)

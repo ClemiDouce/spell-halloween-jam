@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_58h1v")
-lines = Array[String](["???: but what have you done? I haven't done the light system yet! and the craft system !", "player: no need, you see, we've got to start somewhere!", "???: ..."])
+lines = Array[String](["???: but what have you done? I haven't done the light system yet! and the craft system !", "Player: no need, you see, we've got to start somewhere!", "???: ..."])
 metadata/_custom_type_script = "uid://dehbnrn410uu4"

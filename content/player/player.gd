@@ -97,7 +97,6 @@ func swing_tool(tool_name: String):
 	check_destroyable(tool_name)
 
 func check_destroyable(tool: String):
-	tool_area.monitoring = true
 	var destructibles = tool_area.get_overlapping_areas()
 	if !destructibles.is_empty():
 		for d: Destructible in destructibles:
@@ -127,3 +126,4 @@ func get_tool(tool_data: ToolData):
 		have_pickaxe = true
 	else:
 		Inventory.show()
+		Events.inventory_picked.emit()

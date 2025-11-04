@@ -1,6 +1,7 @@
-[gd_scene load_steps=67 format=3 uid="uid://b6i4s437v61fj"]
+[gd_scene load_steps=70 format=3 uid="uid://b6i4s437v61fj"]
 
 [ext_resource type="PackedScene" uid="uid://2qeymtsc1we4" path="res://scenes/map_art.tscn" id="1_c1pb6"]
+[ext_resource type="Script" uid="uid://cggff81tu2ofw" path="res://scenes/main_scene.gd" id="1_jix7a"]
 [ext_resource type="PackedScene" uid="uid://14333omabcms" path="res://content/player/player.tscn" id="2_pw63i"]
 [ext_resource type="PackedScene" uid="uid://5rkbpwxpa468" path="res://content/destructibles/grass_patch.tscn" id="3_7ykc4"]
 [ext_resource type="PackedScene" uid="uid://c25yrmlwdk6fx" path="res://content/destructibles/log.tscn" id="4_pu3yx"]
@@ -143,13 +144,19 @@ size = Vector2(20, 14)
 [sub_resource type="CircleShape2D" id="CircleShape2D_01n6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c16ls"]
-size = Vector2(462, 252)
+size = Vector2(436, 235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcnxi"]
 size = Vector2(13, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nt27"]
 size = Vector2(49.75, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jix7a"]
+size = Vector2(49.75, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_segjr"]
+size = Vector2(32.875, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6f3i"]
 size = Vector2(27.0625, 22.5)
@@ -210,8 +217,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wyf6"]
 size = Vector2(47, 220)
 
-[node name="MainScene" type="Node2D"]
+[node name="MainScene" type="Node2D" node_paths=PackedStringArray("fire_camp")]
 y_sort_enabled = true
+script = ExtResource("1_jix7a")
+fire_camp = NodePath("EndProjectZone/Interactables/Firecamp")
 metadata/_edit_vertical_guides_ = [960.0, 480.0]
 metadata/_edit_horizontal_guides_ = [270.0]
 
@@ -220,7 +229,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_pw63i")]
 y_sort_enabled = true
-position = Vector2(201, 200)
+position = Vector2(205, 178)
 walk_speed = 100.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -275,7 +284,7 @@ collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["-- Village People --", "Why aim sea, yeah ?", "Just Go Weeeeeeeest"])
+dialogue_lines = Array[String](["Village's People", "Why aim sea, yeah ?", "Just Go Weeeeeeeest", "(just kidding, go east)"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Village Panel"
 interaction_particle = NodePath("InteractionParticles")
@@ -938,6 +947,80 @@ label_settings = ExtResource("9_bcnxi")
 z_index = 1
 position = Vector2(10.000025, -19)
 
+[node name="DialogueInteractable3" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
+position = Vector2(200, 84)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_18nlu")
+dialogue_lines = Array[String](["I can't believe it !", "My favorite music band !", "The Doors !"])
+interaction_label = NodePath("InteractionLabel")
+interact_name = "Gold in a field"
+interaction_particle = NodePath("InteractionParticles")
+metadata/_custom_type_script = "uid://dig2g8rgyp0it"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/DialogueInteractable3"]
+position = Vector2(-1, 19)
+shape = SubResource("RectangleShape2D_jix7a")
+
+[node name="InteractionLabel" type="Label" parent="VillageZone/Interactables/DialogueInteractable3"]
+z_index = 1
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -46.0
+offset_right = 55.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Misplaced Door"
+label_settings = ExtResource("9_bcnxi")
+
+[node name="InteractionParticles" parent="VillageZone/Interactables/DialogueInteractable3" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(2.4795532e-05, 15)
+
+[node name="DialogueInteractable4" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
+position = Vector2(41, 55)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_18nlu")
+dialogue_lines = Array[String](["I really can't tell if this wall is advanced architecture,", "or a work in progress."])
+interaction_label = NodePath("InteractionLabel")
+interact_name = "Gold in a field"
+interaction_particle = NodePath("InteractionParticles")
+metadata/_custom_type_script = "uid://dig2g8rgyp0it"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/DialogueInteractable4"]
+position = Vector2(-3.4375, 16)
+shape = SubResource("RectangleShape2D_segjr")
+
+[node name="InteractionLabel" type="Label" parent="VillageZone/Interactables/DialogueInteractable4"]
+z_index = 1
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -28.0
+offset_right = 66.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Strange Wall"
+label_settings = ExtResource("9_bcnxi")
+
+[node name="InteractionParticles" parent="VillageZone/Interactables/DialogueInteractable4" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(-2.9999752, 13)
+
 [node name="AxeTool" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
 position = Vector2(125, 247)
 collision_layer = 2
@@ -994,8 +1077,7 @@ dialogues_steps = Array[ExtResource("10_e1cbu")]([ExtResource("22_0wyf6"), ExtRe
 metadata/_custom_type_script = "uid://dxyrflls3adxw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FarmLandZone"]
-visible = false
-position = Vector2(240, 136)
+position = Vector2(227, 144.5)
 shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Interactables" type="Node2D" parent="FarmLandZone"]
@@ -1391,7 +1473,6 @@ dialogues_steps = Array[ExtResource("10_e1cbu")]([ExtResource("28_267kh"), ExtRe
 metadata/_custom_type_script = "uid://dxyrflls3adxw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone"]
-visible = false
 position = Vector2(240, 136)
 shape = SubResource("RectangleShape2D_c16ls")
 
@@ -1404,7 +1485,7 @@ collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["Please, don't let the zombies cross the barrier", "They're not dangerous, but ..", "Their pathfinding is broken !"])
+dialogue_lines = Array[String](["Please, don't let the zombies cross the barrier", "They're not dangerous, but ..", "Their pathfinding is broken !", "And it's a real pain to put them back together again."])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
 interaction_particle = NodePath("InteractionParticles")
@@ -1423,9 +1504,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -37.0
-offset_top = -28.0
+offset_top = -39.0
 offset_right = 53.0
-offset_bottom = -14.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Group of Zombie"
@@ -1440,7 +1521,7 @@ collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["Zombie: Hello, glad to meet you", "Player: Hey .. you're not supposed to be aggresiv ?", "Zombie : No, it's not implemented yet"])
+dialogue_lines = Array[String](["Zombie: Hello, glad to meet you", "Player: Hey .. you're not supposed to chase me around trying to eat my brain.", "Zombie : Oh, normally yes, but my state machine broke down."])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
 interaction_particle = NodePath("InteractionParticles")
@@ -1826,11 +1907,13 @@ shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Interactables" type="Node2D" parent="EndProjectZone"]
 
-[node name="Firecamp" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("end_dialog_position", "zone", "interaction_label", "interaction_particle") instance=ExtResource("25_u0fll")]
+[node name="Firecamp" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("end_dialog_position", "dev_interaction", "zone", "interaction_label", "interaction_particle") instance=ExtResource("25_u0fll")]
 position = Vector2(224, 103)
 end_dialog_position = NodePath("../../Marker2D")
+dev_interaction = NodePath("../SadDevInteractable")
 zone = NodePath("../..")
 interaction_label = NodePath("Label")
+is_interactable = false
 interaction_particle = NodePath("InteractionParticles")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndProjectZone/Interactables/Firecamp"]
@@ -1849,6 +1932,7 @@ autowrap_mode = 3
 
 [node name="InteractionParticles" parent="EndProjectZone/Interactables/Firecamp" instance=ExtResource("8_xp01v")]
 position = Vector2(-2.9999752, 10)
+emitting = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EndProjectZone/Interactables"]
 position = Vector2(266, 101)
@@ -1856,16 +1940,16 @@ sprite_frames = SubResource("SpriteFrames_duuju")
 autoplay = "default"
 frame_progress = 0.70556676
 
-[node name="DialogueInteractable" type="Area2D" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="SadDevInteractable" type="Area2D" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("interaction_label")]
 position = Vector2(272, 99)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("8_18nlu")
-dialogue_lines = Array[String](["player: Hey, who are you ?", "???: .. implementing pnj first, and then i can ..", "player: he seems to talk to himself. I will start the fire", "???: ... and then microtransaction, vr version, ouya port, very important ..."])
+dialogue_lines = Array[String](["Player: Hey, who are you ?", "???: .. implementing pnj first, and then i can ..", "Player: he seems to talk to himself. I will start the fire", "???: ... and then microtransaction, vr version, ouya port, very important ..."])
 interaction_label = NodePath("Label")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
-[node name="Label" type="Label" parent="EndProjectZone/Interactables/DialogueInteractable"]
+[node name="Label" type="Label" parent="EndProjectZone/Interactables/SadDevInteractable"]
 offset_left = -13.0
 offset_top = -27.0
 offset_right = 20.0
@@ -1875,7 +1959,7 @@ label_settings = ExtResource("9_bcnxi")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndProjectZone/Interactables/DialogueInteractable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndProjectZone/Interactables/SadDevInteractable"]
 position = Vector2(-4, 21)
 shape = SubResource("CircleShape2D_8dxha")
 
@@ -1889,3 +1973,5 @@ position = Vector2(355, 164)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-23, 100)
 shape = SubResource("RectangleShape2D_0wyf6")
+
+[connection signal="interacted" from="EndProjectZone/Interactables/SadDevInteractable" to="." method="_on_sad_dev_interactable_interacted"]

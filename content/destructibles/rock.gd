@@ -5,6 +5,7 @@ var hit_needed := 4
 func destroy():
 	hit_needed -= 1
 	if hit_needed == 0:
+		monitorable = false
 		destroyed.emit()
 		Inventory.add_ressource("rock")
 		animation_player.play("destruct")
