@@ -9,5 +9,7 @@ func _ready() -> void:
 	interaction = _on_interact
 	
 func _on_interact(player: Player):
+	if interaction_particle:
+		interaction_particle.emitting = false
 	DialogueManager.start_dialog(player.dialogue_position.global_position, dialogue_lines, cinematic)
 	await DialogueManager.dialogue_finished

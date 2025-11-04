@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_t4pwe")
-lines = Array[String](["I think this village's quirks are its charm", "I mean, a village with three houses? "])
+lines = Array[String](["I think this village's quirks are its charm", "I mean, a village with three houses? ", ""])
 metadata/_custom_type_script = "uid://dehbnrn410uu4"

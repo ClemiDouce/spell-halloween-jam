@@ -155,13 +155,13 @@ size = Vector2(49.75, 14)
 size = Vector2(27.0625, 22.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqt8"]
-size = Vector2(114, 26)
+size = Vector2(23, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adb74"]
 size = Vector2(28, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p3nn"]
-size = Vector2(15.5, 11)
+size = Vector2(28.5, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58gk3"]
 size = Vector2(32, 11)
@@ -269,7 +269,7 @@ player_node = NodePath("../Player")
 [node name="StartZone" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="DialogueInteractable2" type="Area2D" parent="StartZone" node_paths=PackedStringArray("interaction_label")]
+[node name="DialogueInteractable2" type="Area2D" parent="StartZone" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(456, 123)
 collision_layer = 2
 collision_mask = 0
@@ -278,6 +278,7 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["-- Village People --", "Why aim sea, yeah ?", "Just Go Weeeeeeeest"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Village Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone/DialogueInteractable2"]
@@ -301,7 +302,11 @@ grow_vertical = 0
 text = "Village"
 label_settings = ExtResource("9_bcnxi")
 
-[node name="DialogueInteractable3" type="Area2D" parent="StartZone" node_paths=PackedStringArray("interaction_label")]
+[node name="InteractionParticles" parent="StartZone/DialogueInteractable2" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(-0.14066124, 1)
+
+[node name="DialogueInteractable3" type="Area2D" parent="StartZone" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(24, 153)
 collision_layer = 2
 collision_mask = 0
@@ -311,6 +316,7 @@ dialogue_lines = Array[String](["-- No Man's Land --", "Lesbian Dream, am i righ
 cinematic = true
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Entry Zone"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone/DialogueInteractable3"]
@@ -335,6 +341,7 @@ text = "Starting Point"
 label_settings = ExtResource("9_bcnxi")
 
 [node name="InteractionParticles" parent="StartZone/DialogueInteractable3" instance=ExtResource("8_xp01v")]
+z_index = 1
 position = Vector2(-0.14066124, 1)
 
 [node name="ScytheTool" type="Area2D" parent="StartZone" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
@@ -857,7 +864,7 @@ position = Vector2(21, 162)
 [node name="Interactables" type="Node2D" parent="VillageZone"]
 y_sort_enabled = true
 
-[node name="DialogueInteractable5" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="DialogueInteractable5" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(216, 217)
 collision_layer = 2
 collision_mask = 0
@@ -866,6 +873,7 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["To the person who hid my axe", "Please return it to me", "and don't lose it in the grass."])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/DialogueInteractable5"]
@@ -889,7 +897,11 @@ grow_vertical = 0
 text = "Info Pannel"
 label_settings = ExtResource("9_bcnxi")
 
-[node name="DialogueInteractable2" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="InteractionParticles" parent="VillageZone/Interactables/DialogueInteractable5" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(-0.14066124, 1)
+
+[node name="DialogueInteractable2" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(299, 208)
 collision_layer = 2
 collision_mask = 0
@@ -898,6 +910,7 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["Who let the gold out ?", "Who ? Who Who ?"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Gold in a field"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VillageZone/Interactables/DialogueInteractable2"]
@@ -920,6 +933,10 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Gold in a field"
 label_settings = ExtResource("9_bcnxi")
+
+[node name="InteractionParticles" parent="VillageZone/Interactables/DialogueInteractable2" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(10.000025, -19)
 
 [node name="AxeTool" type="Area2D" parent="VillageZone/Interactables" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
 position = Vector2(125, 247)
@@ -984,7 +1001,7 @@ shape = SubResource("RectangleShape2D_c16ls")
 [node name="Interactables" type="Node2D" parent="FarmLandZone"]
 y_sort_enabled = true
 
-[node name="DialogueInteractable5" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="DialogueInteractable5" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(377, 214)
 collision_layer = 2
 collision_mask = 0
@@ -993,6 +1010,7 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["Here lies ..", "Video Game Industry", "Wow, so dark"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FarmLandZone/Interactables/DialogueInteractable5"]
@@ -1015,6 +1033,10 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Cross Grave"
 label_settings = ExtResource("9_bcnxi")
+
+[node name="InteractionParticles" parent="FarmLandZone/Interactables/DialogueInteractable5" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(-0.9999752, 4)
 
 [node name="DialogueInteractable7" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("interaction_label")]
 position = Vector2(441, 212)
@@ -1048,7 +1070,11 @@ grow_vertical = 0
 text = "Froggy Grave"
 label_settings = ExtResource("9_bcnxi")
 
-[node name="DialogueInteractable6" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="InteractionParticles" parent="FarmLandZone/Interactables/DialogueInteractable7" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(-0.9999752, 6)
+
+[node name="DialogueInteractable6" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(42, 235)
 collision_layer = 2
 collision_mask = 0
@@ -1057,6 +1083,7 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["Don't wait for plants to grow", "Apparently, they're missing something", "To be implemented"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FarmLandZone/Interactables/DialogueInteractable6"]
@@ -1079,6 +1106,10 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Farm pannel"
 label_settings = ExtResource("9_bcnxi")
+
+[node name="InteractionParticles" parent="FarmLandZone/Interactables/DialogueInteractable6" instance=ExtResource("8_xp01v")]
+z_index = 1
+position = Vector2(-0.9999752, -2)
 
 [node name="PickaxeTool" type="Area2D" parent="FarmLandZone/Interactables" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
 position = Vector2(44, 128)
@@ -1367,7 +1398,7 @@ shape = SubResource("RectangleShape2D_c16ls")
 [node name="Interactables" type="Node2D" parent="ZombieZone"]
 z_index = 1
 
-[node name="DialogueInteractable5" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="DialogueInteractable5" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(226, 239)
 collision_layer = 2
 collision_mask = 0
@@ -1376,10 +1407,11 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["Please, don't let the zombies cross the barrier", "They're not dangerous, but ..", "Their pathfinding is broken !"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/DialogueInteractable5"]
-position = Vector2(14, 2)
+position = Vector2(-10.5, -8.5)
 shape = SubResource("RectangleShape2D_xdqt8")
 
 [node name="InteractionLabel" type="Label" parent="ZombieZone/Interactables/DialogueInteractable5"]
@@ -1399,7 +1431,10 @@ grow_vertical = 0
 text = "Group of Zombie"
 label_settings = ExtResource("9_bcnxi")
 
-[node name="DialogueInteractable6" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="InteractionParticles" parent="ZombieZone/Interactables/DialogueInteractable5" instance=ExtResource("8_xp01v")]
+position = Vector2(-9.999975, -10)
+
+[node name="DialogueInteractable6" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(232, 122)
 collision_layer = 2
 collision_mask = 0
@@ -1408,6 +1443,7 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["Zombie: Hello, glad to meet you", "Player: Hey .. you're not supposed to be aggresiv ?", "Zombie : No, it's not implemented yet"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/DialogueInteractable6"]
@@ -1431,7 +1467,10 @@ grow_vertical = 0
 text = "Zombie"
 label_settings = ExtResource("9_bcnxi")
 
-[node name="DialogueInteractable7" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="InteractionParticles" parent="ZombieZone/Interactables/DialogueInteractable6" instance=ExtResource("8_xp01v")]
+position = Vector2(2.4795532e-05, 1)
+
+[node name="DialogueInteractable7" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(390, 88)
 collision_layer = 2
 collision_mask = 0
@@ -1440,6 +1479,7 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["Be careful not to get too close to this stable", "Indeed, due to the lack of certain tiles in the tileset,", "it could collapse at any moment.", "Thank you for your understanding"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/DialogueInteractable7"]
@@ -1464,7 +1504,10 @@ grow_vertical = 0
 text = "Wobbly barn"
 label_settings = ExtResource("9_bcnxi")
 
-[node name="CarCrashInteractable" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label")]
+[node name="InteractionParticles" parent="ZombieZone/Interactables/DialogueInteractable7" instance=ExtResource("8_xp01v")]
+position = Vector2(1.0000248, 0)
+
+[node name="CarCrashInteractable" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("interaction_label", "interaction_particle")]
 position = Vector2(66.5, 75)
 collision_layer = 2
 collision_mask = 0
@@ -1473,10 +1516,11 @@ script = ExtResource("8_18nlu")
 dialogue_lines = Array[String](["I identify a lot with this car", "Crashing into the rock of too big a project"])
 interaction_label = NodePath("InteractionLabel")
 interact_name = "Test Panel"
+interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieZone/Interactables/CarCrashInteractable"]
-position = Vector2(2.75, 12.5)
+position = Vector2(9.25, 12.5)
 shape = SubResource("RectangleShape2D_6p3nn")
 
 [node name="InteractionLabel" type="Label" parent="ZombieZone/Interactables/CarCrashInteractable"]
@@ -1495,6 +1539,9 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Crashed Car"
 label_settings = ExtResource("9_bcnxi")
+
+[node name="InteractionParticles" parent="ZombieZone/Interactables/CarCrashInteractable" instance=ExtResource("8_xp01v")]
+position = Vector2(8.500025, 11)
 
 [node name="InventoryTool" type="Area2D" parent="ZombieZone/Interactables" node_paths=PackedStringArray("tool_sprite", "interaction_label")]
 position = Vector2(31, 229)
@@ -1779,11 +1826,12 @@ shape = SubResource("RectangleShape2D_c16ls")
 
 [node name="Interactables" type="Node2D" parent="EndProjectZone"]
 
-[node name="Firecamp" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("end_dialog_position", "zone", "interaction_label") instance=ExtResource("25_u0fll")]
+[node name="Firecamp" parent="EndProjectZone/Interactables" node_paths=PackedStringArray("end_dialog_position", "zone", "interaction_label", "interaction_particle") instance=ExtResource("25_u0fll")]
 position = Vector2(224, 103)
 end_dialog_position = NodePath("../../Marker2D")
 zone = NodePath("../..")
 interaction_label = NodePath("Label")
+interaction_particle = NodePath("InteractionParticles")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndProjectZone/Interactables/Firecamp"]
 shape = SubResource("CircleShape2D_6p3nn")
@@ -1798,6 +1846,9 @@ text = "10 stone - Start Fire camp"
 label_settings = ExtResource("9_bcnxi")
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="InteractionParticles" parent="EndProjectZone/Interactables/Firecamp" instance=ExtResource("8_xp01v")]
+position = Vector2(-2.9999752, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EndProjectZone/Interactables"]
 position = Vector2(266, 101)
