@@ -36,9 +36,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Thank you for playing this game
 Creating something is complicated, and we must never forget it.
+
 So every little thing we manage to get out of our heads in the form of a drawing, video game or music is a small miracle."
 label_settings = ExtResource("2_xm711")
-horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="."]

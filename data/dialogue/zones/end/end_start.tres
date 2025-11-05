@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_g7m26")
-lines = Array[String](["Oh, well, actually, there's not much", "Just a forest, a campfire site, and ...someone? At last!"])
+lines = Array[String](["Oh, this zone is very different", "Just a forest, a campfire site, and ...someone? At last!"])
 metadata/_custom_type_script = "uid://dehbnrn410uu4"

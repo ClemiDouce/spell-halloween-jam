@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_3p2w0")
-lines = Array[String](["player: We did it! A pretty fire, don't you think", "dev: Yeah, that's true ... but there's so much more we could add", "player: Like what?", "dev: Raycasting? ", "player: Don't be silly, a campfire doesn't need raycasting. And let's make the most of what we've got.", "dev: Thanks for the fire.", "player: You're welcome. And thanks for building the nice areas I've been through", "dev: Even if they're not finished?", "player: They exist, it's already great!"])
+lines = Array[String](["Player: We did it! A pretty fire, don't you think", "Dev: Yeah, that's true ... but there's so much more we could add", "Player: Like what?", "Dev: Raycasting? ", "Player: Don't be silly, a campfire doesn't need raycasting. And let's make the most of what we've got.", "Dev: Thanks for the fire.", "Player: You're welcome. And thanks for building the nice areas I've been through", "Dev: Even if they're not finished?", "Player: They exist, it's already great!"])
 metadata/_custom_type_script = "uid://dehbnrn410uu4"

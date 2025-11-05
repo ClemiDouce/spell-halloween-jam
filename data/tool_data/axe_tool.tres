@@ -9,6 +9,6 @@ script = ExtResource("1_lrtia")
 tool_name = "Axe"
 icon = ExtResource("1_6wxm3")
 use_curve = ExtResource("3_30yum")
-input_key = "Use it with key [A]"
+input_key = "Use it with key [Q]"
 target = "Go hit the logs, like a true programmer"
 metadata/_custom_type_script = "uid://b0jqwcfayn8j5"
