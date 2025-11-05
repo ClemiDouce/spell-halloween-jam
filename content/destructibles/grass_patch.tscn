@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://5rkbpwxpa468"]
+[gd_scene load_steps=12 format=3 uid="uid://5rkbpwxpa468"]
 
 [ext_resource type="Script" uid="uid://62eerxts67ts" path="res://content/destructibles/grass_patch.gd" id="1_c3vu7"]
 [ext_resource type="Texture2D" uid="uid://bprg7y25bhgn3" path="res://assets/art/tilemap_packed.png" id="2_c3vu7"]
 [ext_resource type="Script" uid="uid://tm8wvyl0xah3" path="res://content/components/moving_component.gd" id="3_c3vu7"]
+[ext_resource type="AudioStream" uid="uid://lmth3542e1s6" path="res://assets/sound/grass_cut.wav" id="4_od5xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od5xr"]
 size = Vector2(16, 12)
@@ -125,6 +126,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3vu7"]
 size = Vector2(16, 12)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4qn7k"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_od5xr")
+
 [node name="Grass" type="Area2D"]
 y_sort_enabled = true
 collision_layer = 16
@@ -170,3 +176,7 @@ position = Vector2(0, 5)
 texture = ExtResource("2_c3vu7")
 region_enabled = true
 region_rect = Rect2(80, 26, 16, 6)
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_4qn7k")

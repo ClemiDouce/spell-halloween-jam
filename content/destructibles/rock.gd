@@ -4,6 +4,7 @@ var hit_needed := 4
 
 func destroy():
 	hit_needed -= 1
+	hit_sound_player.play()
 	if hit_needed == 0:
 		monitorable = false
 		destroyed.emit()

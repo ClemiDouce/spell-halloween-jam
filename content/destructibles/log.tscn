@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c25yrmlwdk6fx"]
+[gd_scene load_steps=11 format=3 uid="uid://c25yrmlwdk6fx"]
 
 [ext_resource type="Script" uid="uid://86eescf4klx3" path="res://content/destructibles/log.gd" id="1_ig52j"]
 [ext_resource type="Texture2D" uid="uid://bprg7y25bhgn3" path="res://assets/art/tilemap_packed.png" id="2_5v2wk"]
+[ext_resource type="AudioStream" uid="uid://pe4yhvfy26cn" path="res://assets/sound/log_cut.wav" id="3_5v2wk"]
 
 [sub_resource type="Curve" id="Curve_ig52j"]
 _data = [Vector2(0, 0), 0.0, 5.655761, 0, 0, Vector2(0.49883443, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.5989265, 0.0, 0, 0]
@@ -86,6 +87,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig52j"]
 size = Vector2(16, 12)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qeuxh"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_5v2wk")
+
 [node name="Log" type="Area2D"]
 y_sort_enabled = true
 collision_layer = 16
@@ -132,3 +138,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_ig52j")
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_qeuxh")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c61c6h6sh2hjs"]
+[gd_scene load_steps=11 format=3 uid="uid://c61c6h6sh2hjs"]
 
 [ext_resource type="Script" uid="uid://dkblnmiubtuca" path="res://content/destructibles/rock.gd" id="1_688f0"]
 [ext_resource type="Texture2D" uid="uid://b0746kohhdxf8" path="res://assets/art/spr_tileset_sunnysideworld_16px.png" id="2_688f0"]
+[ext_resource type="AudioStream" uid="uid://dqko26p6i7spa" path="res://assets/sound/rock_hit.wav" id="3_0x4ld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od5xr"]
 size = Vector2(20, 19)
@@ -159,6 +160,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0x4ld"]
 size = Vector2(22, 20.5)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xsvwr"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_0x4ld")
+
 [node name="Rock" type="Area2D"]
 y_sort_enabled = true
 collision_layer = 16
@@ -217,3 +223,7 @@ region_rect = Rect2(833, 480, 10, 13)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -10.75)
 shape = SubResource("RectangleShape2D_0x4ld")
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_xsvwr")
