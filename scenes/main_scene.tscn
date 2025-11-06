@@ -1,7 +1,7 @@
-[gd_scene load_steps=71 format=3 uid="uid://b6i4s437v61fj"]
+[gd_scene load_steps=75 format=3 uid="uid://b6i4s437v61fj"]
 
 [ext_resource type="PackedScene" uid="uid://2qeymtsc1we4" path="res://scenes/map_art.tscn" id="1_c1pb6"]
-[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_jix7a"]
+[ext_resource type="Script" uid="uid://cggff81tu2ofw" path="res://scenes/main_scene.gd" id="1_jix7a"]
 [ext_resource type="PackedScene" uid="uid://14333omabcms" path="res://content/player/player.tscn" id="2_pw63i"]
 [ext_resource type="PackedScene" uid="uid://5rkbpwxpa468" path="res://content/destructibles/grass_patch.tscn" id="3_7ykc4"]
 [ext_resource type="PackedScene" uid="uid://c25yrmlwdk6fx" path="res://content/destructibles/log.tscn" id="4_pu3yx"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dxyrflls3adxw" path="res://content/zones/zone.gd" id="6_c16ls"]
 [ext_resource type="PackedScene" uid="uid://ci8rnncvrdyyx" path="res://content/camera/room_camera.tscn" id="6_rt2n2"]
 [ext_resource type="Script" uid="uid://dig2g8rgyp0it" path="res://content/interactables/dialogue_interactable.gd" id="8_18nlu"]
-[ext_resource type="PackedScene" path="res://interaction_particles.tscn" id="8_xp01v"]
+[ext_resource type="PackedScene" uid="uid://c75v4uh3qcda" path="res://interaction_particles.tscn" id="8_xp01v"]
 [ext_resource type="LabelSettings" uid="uid://b1vwws614vxp5" path="res://assets/interaction_label_theme.tres" id="9_bcnxi"]
 [ext_resource type="Script" uid="uid://dm5bkbi4mbc6c" path="res://content/interactables/tool_interactable.gd" id="9_si52b"]
 [ext_resource type="Resource" uid="uid://bbhrwymu6w6as" path="res://data/tool_data/scythe_tool.tres" id="10_6u1mn"]
@@ -44,6 +44,9 @@
 [ext_resource type="Resource" uid="uid://dkkaqroqpfldq" path="res://data/dialogue/zones/end/end_75.tres" id="39_j2yw6"]
 [ext_resource type="Resource" uid="uid://vfqo4blkxbqv" path="res://data/dialogue/zones/end/end100.tres" id="40_8pjrr"]
 [ext_resource type="Texture2D" uid="uid://bx5dkxwdgyp7i" path="res://assets/art/firecamp/16x32 Idle-Sheet.png" id="42_xp01v"]
+[ext_resource type="AudioStream" uid="uid://114orwai7fsh" path="res://assets/sound/chiptune_song.mp3" id="45_segjr"]
+[ext_resource type="AudioStream" uid="uid://dvacn318pr6it" path="res://assets/sound/crow_mood.mp3" id="46_beobj"]
+[ext_resource type="AudioStream" uid="uid://cwv8xsw3xsmsf" path="res://assets/sound/fantasy_song.mp3" id="47_267kh"]
 
 [sub_resource type="Animation" id="Animation_6wevv"]
 length = 0.001
@@ -135,8 +138,8 @@ _data = {
 &"cinema_out": SubResource("Animation_e1cbu")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1pb6"]
-size = Vector2(44.5, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_267kh"]
+size = Vector2(15, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0fll"]
 size = Vector2(20, 14)
@@ -221,10 +224,41 @@ size = Vector2(12, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wyf6"]
 size = Vector2(18.5, 280)
 
-[node name="MainScene" type="Node2D" node_paths=PackedStringArray("fire_camp")]
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_267kh"]
+clip_count = 3
+clip_0/name = &"classic"
+clip_0/stream = ExtResource("45_segjr")
+clip_0/auto_advance = 0
+clip_1/name = &"crow"
+clip_1/stream = ExtResource("46_beobj")
+clip_1/auto_advance = 0
+clip_2/name = &"end"
+clip_2/stream = ExtResource("47_267kh")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(1, 0): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(1, 2): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+}
+}
+
+[node name="MainScene" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jix7a")
-fire_camp = NodePath("EndProjectZone/Interactables/Firecamp")
 metadata/_edit_vertical_guides_ = [960.0, 480.0]
 metadata/_edit_horizontal_guides_ = [270.0]
 
@@ -234,7 +268,7 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("2_pw63i")]
 y_sort_enabled = true
 position = Vector2(65, 164)
-walk_speed = 100.0
+walk_speed = 75.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -295,8 +329,8 @@ interaction_particle = NodePath("InteractionParticles")
 metadata/_custom_type_script = "uid://dig2g8rgyp0it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartZone/DialogueInteractable2"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_c1pb6")
+position = Vector2(-1.5, 8)
+shape = SubResource("RectangleShape2D_267kh")
 
 [node name="InteractionLabel" type="Label" parent="StartZone/DialogueInteractable2"]
 z_index = 1
@@ -1986,5 +2020,11 @@ position = Vector2(355, 164)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-8.75, 130)
 shape = SubResource("RectangleShape2D_0wyf6")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamInteractive_267kh")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="interacted" from="EndProjectZone/Interactables/SadDevInteractable" to="." method="_on_sad_dev_interactable_interacted"]
